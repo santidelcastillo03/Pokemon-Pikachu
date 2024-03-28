@@ -22,7 +22,6 @@ public class GamePlayer {
     }
 
     public void playGame() {
-        // Select a Pokemon to play with
         System.out.println("Select a Pokemon to play with:");
         for (int i = 0; i < game.getPokemons().size(); i++) {
             System.out.println((i + 1) + ". " + game.getPokemons().get(i).getName());
@@ -43,7 +42,6 @@ public class GamePlayer {
         }
         game.setWattsBalance(game.getWattsBalance() - betWatts);
 
-        // Play a game
         if (selectedPokemon.getName().equals("Pikachu")) {
             playHighLowGame(betWatts);
         } else if (selectedPokemon.getName().equals("Pachirisu")) {

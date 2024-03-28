@@ -35,7 +35,6 @@ public class Shop {
         if (game.getWattsBalance() >= selectedGift.getCost()) {
             game.deductWatts(selectedGift.getCost());
             System.out.println("Which Pokemon do you want to give the gift to?");
-            // show the game's Pokemons and let them select one
             int pokemonIndex = scanner.nextInt();
             Pokemon selectedPokemon = game.getPokemons().get(pokemonIndex);
             selectedPokemon.increaseRelationship(selectedGift.getRelationshipEffect());
