@@ -38,7 +38,7 @@ public class PokemonPikachu {
 
         player.playGame();
         game.update();
-        System.out.println( game.getWattsBalance());
+        pikachu.currentStatus();
     }
 
 

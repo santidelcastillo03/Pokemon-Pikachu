@@ -13,6 +13,7 @@ package DataStructures;
 public class AVLNode<T> {
     int key;
     T data;
+    int 
     int height;
     AVLNode<T> left, right;
 
