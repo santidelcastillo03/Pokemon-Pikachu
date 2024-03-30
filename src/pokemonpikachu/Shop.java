@@ -35,6 +35,7 @@ public class Shop {
         if (game.getWattsBalance() >= selectedGift.getCost()) {
             game.deductWatts(selectedGift.getCost());
             System.out.println("Which Pokemon do you want to give the gift to?");
+            displayAvailablePokemon();
             int pokemonIndex = scanner.nextInt();
             Pokemon selectedPokemon = game.getPokemons().get(pokemonIndex);
             selectedPokemon.increaseRelationship(selectedGift.getRelationshipEffect());
@@ -48,6 +49,14 @@ public class Shop {
         for (int i = 0; i < availableGifts.size(); i++) {
             Gift gift = availableGifts.get(i);
             System.out.println((i + 1) + ". " + gift.getName() + " - " + gift.getCost() + " Watts");
+        }
+    }
+
+    public void displayAvailablePokemon() {
+        DynamicArray<Pokemon> pokemons = game.getPokemons();
+        for (int i = 0; i < pokemons.size(); i++) {
+            Pokemon pokemon = pokemons.get(i);
+            System.out.println((i + 1) + ". " + pokemon.getName());
         }
     }
 }

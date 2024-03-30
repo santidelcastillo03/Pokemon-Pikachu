@@ -4,6 +4,8 @@
  */
 package pokemonpikachu;
 
+import DataStructures.DynamicArray;
+
 import java.util.Random;
 import java.util.Scanner;
 /**
@@ -90,4 +92,12 @@ private void playGuessingGame(Pokemon pokemon, int betWatts) {
         pokemon.setRelationship(pokemon.getRelationship() + betWatts);
     }
 }
+
+    public void displayAvailablePokemon() {
+        DynamicArray<Pokemon> pokemons = game.getPokemons();
+        for (int i = 0; i < pokemons.size(); i++) {
+            Pokemon pokemon = pokemons.get(i);
+            System.out.println((i + 1) + ". " + pokemon.getName());
+        }
+    }
 }
