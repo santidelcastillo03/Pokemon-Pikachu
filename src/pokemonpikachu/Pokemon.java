@@ -4,6 +4,7 @@
  */
 package pokemonpikachu;
 
+import DataStructures.AVLNode;
 import DataStructures.AVLTree;
 import DataStructures.DynamicArray;
 
@@ -57,10 +58,30 @@ public class Pokemon {
     }
 
     public void addGift(Gift gift) {
-        giftsReceived.insert(gift, gift.getCost(), gift);
+        AVLNode<Gift> nGift = new AVLNode(gift.getCost(), gift);
+        giftsReceived.insert(nGift, gift.getCost(), gift);
     }
 
     public void increaseRelationship(int effect) {
-        relationship += effect;
+    relationship += effect;
+    if (relationship > 10000) {
+        relationship=10000;
     }
+    }
+    
+    public DynamicArray<Gift> listGiftsReceived(AVLNode<Gift> root, DynamicArray<Gift> listGifts) {
+    if (root == null) {
+        return listGifts;
+    }
+
+    listGiftsReceived(root.getLeft(), listGifts);
+    
+    if(root.getData() !=null){
+        listGifts.add(root.getData());
+    }
+
+    listGiftsReceived(root.getRight(), listGifts);
+
+    return listGifts;
+}
 }
