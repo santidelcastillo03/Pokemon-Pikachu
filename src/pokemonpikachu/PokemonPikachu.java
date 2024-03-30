@@ -20,7 +20,7 @@ public class PokemonPikachu {
         Pokemon pikachu = new Pokemon("Pikachu");
            game.getPokemons().add(pikachu);
         SoundPlayer sound = new SoundPlayer();
-        sound.playSound("src/Sounds/1-17 Battle! Trainer.wav");
+        //sound.playSound("src/Sounds/1-17 Battle! Trainer.wav");
         game.update();
         pikachu.setRelationship(1000);
         game.setWattsBalance(3000);
@@ -36,9 +36,9 @@ public class PokemonPikachu {
         System.out.println("Pikachu's gifts:");
         System.out.println(pikachu.getGiftsReceived());
 
-        player.playGame();
+        //player.playGame();
         game.update();
-        pikachu.currentStatus();
+        System.out.println(pikachu.currentStatus());
     }
 
 

@@ -66,6 +66,7 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
     public AVLNode<T> insert(AVLNode<T> node, int key, T data){
         if (node == null){
             AVLNode<T> a = new AVLNode(key, data);
+            System.out.println("nuevo nodo");
             return a;
         }
         if (key < node.key){

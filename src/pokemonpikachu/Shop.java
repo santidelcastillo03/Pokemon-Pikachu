@@ -39,7 +39,9 @@ public class Shop {
             int pokemonIndex = scanner.nextInt();
             Pokemon selectedPokemon = game.getPokemons().get(pokemonIndex);
             selectedPokemon.increaseRelationship(selectedGift.getRelationshipEffect());
+            System.out.println("hola");
             selectedPokemon.addGift(selectedGift);
+            
         } else {
             System.out.println("You don't have enough watts to buy this gift.");
         }
