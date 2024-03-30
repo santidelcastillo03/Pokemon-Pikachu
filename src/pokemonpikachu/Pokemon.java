@@ -71,14 +71,16 @@ public class Pokemon {
     }
 
     public void listGiftsReceived(AVLNode<Gift> root) {
-
+        if(root.getLeft() !=null){
         listGiftsReceived(root.getLeft());
+        }
 
         if(root.getData() !=null){
             listGifts.add(root.getData());
         }
-
-        listGiftsReceived(root.getRight());
+        if(root.getRight() !=null){
+            listGiftsReceived(root.getRight());
+        }
 
 }
 
