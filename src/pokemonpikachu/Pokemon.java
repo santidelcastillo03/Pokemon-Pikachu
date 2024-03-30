@@ -17,6 +17,7 @@ public class Pokemon {
     private String emotionalState;
     private int relationship;
     private AVLTree<Gift> giftsReceived;
+    private DynamicArray<Gift> listGifts;
 
     public Pokemon(String name) {
         this.name = name;
@@ -69,19 +70,28 @@ public class Pokemon {
     }
     }
     
-    public DynamicArray<Gift> listGiftsReceived(AVLNode<Gift> root, DynamicArray<Gift> listGifts) {
-    if (root == null) {
-        return listGifts;
-    }
+    public void listGiftsReceived(AVLNode<Gift> root) {
 
-    listGiftsReceived(root.getLeft(), listGifts);
+    listGiftsReceived(root.getLeft());
     
     if(root.getData() !=null){
         listGifts.add(root.getData());
     }
 
-    listGiftsReceived(root.getRight(), listGifts);
+    listGiftsReceived(root.getRight());
 
-    return listGifts;
+}
+
+public String currentStatus(){
+    StringBuilder infoSB = new StringBuilder();
+    infoSB.append("Relación: \n"+relationship+"\n");
+    infoSB.append("Estado emocional: \n"+emotionalState+"\n");
+    listGifts = new DynamicArray();
+    listGiftsReceived(giftsReceived.getRoot());
+    for (Gift gift : listGifts){
+        infoSB.append(gift.getName()+"\n");
+    }
+    String info = infoSB.toString();
+    return info;
 }
 }

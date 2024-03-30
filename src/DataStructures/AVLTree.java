@@ -73,6 +73,9 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         }
         else if (key > node.key){
             node.setRight(insert(node.getRight(), key, data));
+        }else if(key == node.key && data.equals(node.getData())){
+            int qty = node.getQty() +1;
+            node.setQty(qty);
         }else{
             return node;
         }
