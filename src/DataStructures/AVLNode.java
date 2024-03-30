@@ -13,14 +13,26 @@ package DataStructures;
 public class AVLNode<T> {
     int key;
     T data;
+    int qty;
     int height;
     AVLNode<T> left, right;
 
     public AVLNode(int key, T data) {
         this.key = key;
         this.data = data;
+        this.qty = 0;
         this.height = 1;
     }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+    
+    
 
     public int getKey() {
         return key;
