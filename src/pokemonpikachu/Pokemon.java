@@ -60,38 +60,39 @@ public class Pokemon {
 
     public void addGift(Gift gift) {
         AVLNode<Gift> nGift = new AVLNode(gift.getCost(), gift);
-        giftsReceived.insert(nGift, gift.getCost(), gift);
+        giftsReceived.addLeaf(gift.getCost(), gift);
     }
 
     public void increaseRelationship(int effect) {
-    relationship += effect;
-    if (relationship > 10000) {
-        relationship=10000;
+        relationship += effect;
+        if (relationship > 10000) {
+            relationship = 10000;
+        }
     }
-    }
-    
+
     public void listGiftsReceived(AVLNode<Gift> root) {
 
-    listGiftsReceived(root.getLeft());
-    
-    if(root.getData() !=null){
-        listGifts.add(root.getData());
+        listGiftsReceived(root.getLeft());
+
+        if(root.getData() !=null){
+            listGifts.add(root.getData());
+        }
+
+        listGiftsReceived(root.getRight());
+
+}
+
+    public String currentStatus() {
+        StringBuilder infoSB = new StringBuilder();
+        infoSB.append("Relación: \n" + relationship + "\n");
+        infoSB.append("Estado emocional: \n" + emotionalState + "\n");
+        listGifts = new DynamicArray();
+        listGiftsReceived(giftsReceived.getRoot());
+        for (Gift gift : listGifts) {
+            infoSB.append(gift.getName() + "\n");
+        }
+        String info = infoSB.toString();
+        return info;
     }
-
-    listGiftsReceived(root.getRight());
-
 }
 
-public String currentStatus(){
-    StringBuilder infoSB = new StringBuilder();
-    infoSB.append("Relación: \n"+relationship+"\n");
-    infoSB.append("Estado emocional: \n"+emotionalState+"\n");
-    listGifts = new DynamicArray();
-    listGiftsReceived(giftsReceived.getRoot());
-    for (Gift gift : listGifts){
-        infoSB.append(gift.getName()+"\n");
-    }
-    String info = infoSB.toString();
-    return info;
-}
-}
