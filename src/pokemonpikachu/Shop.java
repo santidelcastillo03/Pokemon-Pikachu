@@ -25,6 +25,7 @@ public class Shop {
     private void initializeGifts() {
         availableGifts.add(new Gift("Baya Aranja", 100, 100));
         availableGifts.add(new Gift("Baya Caquic", 200, 250));
+        //agregar mas regalos
     }
 
     public void buyGift() {

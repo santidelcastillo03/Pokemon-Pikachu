@@ -18,11 +18,13 @@ public class PokemonPikachu {
 
         GamePlayer player = new GamePlayer(game);
         Pokemon pikachu = new Pokemon("Pikachu");
+        Pokemon pachirisu = new Pokemon("Pachirisu");
            game.getPokemons().add(pikachu);
+        game.getPokemons().add(pachirisu);
         SoundPlayer sound = new SoundPlayer();
         //sound.playSound("src/Sounds/1-17 Battle! Trainer.wav");
         game.update();
-        pikachu.setRelationship(1000);
+        pikachu.setRelationship(8000);
         game.setWattsBalance(3000);
 
 
@@ -33,12 +35,10 @@ public class PokemonPikachu {
         System.out.println( pikachu.getRelationship());
         System.out.println( game.getWattsBalance());
 
-        System.out.println("Pikachu's gifts:");
-        System.out.println(pikachu.getGiftsReceived());
-
-        //player.playGame();
+        shop.buyGift();
+        player.playGame();
         game.update();
-        System.out.println(pikachu.currentStatus());
+        System.out.println(pachirisu.currentStatus());
     }
 
 
