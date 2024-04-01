@@ -23,9 +23,17 @@ public class Shop {
     }
 
     private void initializeGifts() {
-        availableGifts.add(new Gift("Baya Aranja", 100, 100));
-        availableGifts.add(new Gift("Baya Caquic", 200, 250));
-        //agregar mas regalos
+        for (int i = 0; i < 20; i++) {
+            availableGifts.add(new Gift("Baya Aranja", 100, 100));
+            availableGifts.add(new Gift("Baya Caquic", 200, 250));
+            availableGifts.add(new Gift("Poke ball", 300, 400));
+            availableGifts.add(new Gift("Baya Zreza", 400, 550));
+            availableGifts.add(new Gift("Baya Zanama", 500, 700));
+            availableGifts.add(new Gift("Baya Ziuela", 600, 850));
+            availableGifts.add(new Gift("Baya Zidra", 700, 1000));
+            availableGifts.add(new Gift("Baya Enigma", 800, 1150));
+            availableGifts.add(new Gift("Caramelo raro", 900, 1300));
+        }
     }
 
     public void buyGift() {
@@ -51,7 +59,16 @@ public class Shop {
     private void showAvailableGifts() {
         for (int i = 0; i < availableGifts.size(); i++) {
             Gift gift = availableGifts.get(i);
-            System.out.println((i + 1) + ". " + gift.getName() + " - " + gift.getCost() + " Watts");
+            boolean isUnique = true;
+            for (int j = 0; j < i; j++) {
+                if (availableGifts.get(j).getName().equals(gift.getName())) {
+                    isUnique = false;
+                    break;
+                }
+            }
+            if (isUnique) {
+                System.out.println((i + 1) + ". " + gift.getName() + " - " + gift.getCost() + " Watts");
+            }
         }
     }
 
