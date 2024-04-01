@@ -26,21 +26,68 @@ public class InitialMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        bgpanel = new javax.swing.JPanel();
+        authorstxt = new javax.swing.JLabel();
+        creditsbtn = new javax.swing.JButton();
+        newgamebtn = new javax.swing.JButton();
+        howtoplaybtn = new javax.swing.JButton();
+        loadgamebtn = new javax.swing.JButton();
+        initmenubackground = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bgpanel.setBackground(new java.awt.Color(255, 255, 255));
+        bgpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        authorstxt.setFont(new java.awt.Font("Roboto", 1, 10)); // NOI18N
+        authorstxt.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        authorstxt.setText("Made by: Santiago del Castillo, Vicente Tralci, Angel García");
+        bgpanel.add(authorstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 300, 20));
+
+        creditsbtn.setBackground(new java.awt.Color(255, 255, 102));
+        creditsbtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        creditsbtn.setForeground(new java.awt.Color(0, 0, 0));
+        creditsbtn.setText("CREDITS");
+        bgpanel.add(creditsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, 180, 40));
+
+        newgamebtn.setBackground(new java.awt.Color(255, 255, 102));
+        newgamebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        newgamebtn.setForeground(new java.awt.Color(0, 0, 0));
+        newgamebtn.setText("NEW GAME");
+        newgamebtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        newgamebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newgamebtnActionPerformed(evt);
+            }
+        });
+        bgpanel.add(newgamebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 180, 40));
+
+        howtoplaybtn.setBackground(new java.awt.Color(255, 255, 102));
+        howtoplaybtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        howtoplaybtn.setForeground(new java.awt.Color(0, 0, 0));
+        howtoplaybtn.setText("HOW TO PLAY");
+        bgpanel.add(howtoplaybtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 180, 40));
+
+        loadgamebtn.setBackground(new java.awt.Color(255, 255, 102));
+        loadgamebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        loadgamebtn.setForeground(new java.awt.Color(0, 0, 0));
+        loadgamebtn.setText("LOAD GAME");
+        bgpanel.add(loadgamebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 180, 40));
+
+        initmenubackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/initmenu.jpg"))); // NOI18N
+        initmenubackground.setText(" ");
+        bgpanel.add(initmenubackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(bgpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void newgamebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newgamebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newgamebtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +125,12 @@ public class InitialMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel authorstxt;
+    private javax.swing.JPanel bgpanel;
+    private javax.swing.JButton creditsbtn;
+    private javax.swing.JButton howtoplaybtn;
+    private javax.swing.JLabel initmenubackground;
+    private javax.swing.JButton loadgamebtn;
+    private javax.swing.JButton newgamebtn;
     // End of variables declaration//GEN-END:variables
 }

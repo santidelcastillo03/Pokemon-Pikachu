@@ -26,21 +26,118 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        mainmenupanel = new javax.swing.JPanel();
+        timebtn = new javax.swing.JButton();
+        savegamebtn = new javax.swing.JButton();
+        playbtn = new javax.swing.JButton();
+        pokemonbtn1 = new javax.swing.JButton();
+        shopbtn = new javax.swing.JButton();
+        wattsbtn1 = new javax.swing.JButton();
+        mainmenutitle = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mainmenupanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainmenupanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        timebtn.setBackground(new java.awt.Color(255, 255, 102));
+        timebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        timebtn.setForeground(new java.awt.Color(0, 0, 0));
+        timebtn.setText("TIME");
+        mainmenupanel.add(timebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 180, 40));
+
+        savegamebtn.setBackground(new java.awt.Color(255, 255, 102));
+        savegamebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        savegamebtn.setForeground(new java.awt.Color(0, 0, 0));
+        savegamebtn.setText("SAVE GAME");
+        savegamebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savegamebtnActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(savegamebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 180, 40));
+
+        playbtn.setBackground(new java.awt.Color(255, 255, 102));
+        playbtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        playbtn.setForeground(new java.awt.Color(0, 0, 0));
+        playbtn.setText("PLAY");
+        playbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playbtnActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(playbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 180, 40));
+
+        pokemonbtn1.setBackground(new java.awt.Color(255, 255, 102));
+        pokemonbtn1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        pokemonbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        pokemonbtn1.setText("POKEMON");
+        pokemonbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pokemonbtn1ActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(pokemonbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 180, 40));
+
+        shopbtn.setBackground(new java.awt.Color(255, 255, 102));
+        shopbtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        shopbtn.setForeground(new java.awt.Color(0, 0, 0));
+        shopbtn.setText("SHOP");
+        shopbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shopbtnActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(shopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 180, 40));
+
+        wattsbtn1.setBackground(new java.awt.Color(255, 255, 102));
+        wattsbtn1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        wattsbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        wattsbtn1.setText("WATTS");
+        wattsbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wattsbtn1ActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(wattsbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 180, 40));
+
+        mainmenutitle.setFont(new java.awt.Font("Snap ITC", 1, 48)); // NOI18N
+        mainmenutitle.setForeground(new java.awt.Color(255, 255, 255));
+        mainmenutitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mainmenutitle.setText("Main Menu");
+        mainmenupanel.add(mainmenutitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 50, 810, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mainmenu.jpg"))); // NOI18N
+        bg.setText(" ");
+        mainmenupanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(mainmenupanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void playbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playbtnActionPerformed
+
+    private void shopbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shopbtnActionPerformed
+
+    private void wattsbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wattsbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wattsbtn1ActionPerformed
+
+    private void pokemonbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pokemonbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pokemonbtn1ActionPerformed
+
+    private void savegamebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savegamebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_savegamebtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +175,14 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
+    private javax.swing.JPanel mainmenupanel;
+    private javax.swing.JLabel mainmenutitle;
+    private javax.swing.JButton playbtn;
+    private javax.swing.JButton pokemonbtn1;
+    private javax.swing.JButton savegamebtn;
+    private javax.swing.JButton shopbtn;
+    private javax.swing.JButton timebtn;
+    private javax.swing.JButton wattsbtn1;
     // End of variables declaration//GEN-END:variables
 }
