@@ -16,18 +16,25 @@ import java.io.IOException;
  * @author Santiago
  */
 public class SoundPlayer {
+    private Clip clip;
 
     public void playSound(String filePath) {
         try {
             File soundFile = new File(filePath);
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
 
-            Clip clip = AudioSystem.getClip();
+            clip = AudioSystem.getClip();
 
             clip.open(audioInputStream);
-            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void stopSound() {
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
         }
     }
 }

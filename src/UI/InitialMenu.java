@@ -4,17 +4,24 @@
  */
 package UI;
 
+import pokemonpikachu.SoundPlayer;
+
 /**
  *
  * @author Santiago
  */
 public class InitialMenu extends javax.swing.JFrame {
-
+    MainMenu mainMenu = new MainMenu();
+    SoundPlayer soundPlayer = new SoundPlayer();
     /**
      * Creates new form InitialMenu
      */
     public InitialMenu() {
         initComponents();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        soundPlayer.playSound("src/Sounds/1-04 Opening Select.wav");
+       
     }
 
     /**
@@ -57,6 +64,11 @@ public class InitialMenu extends javax.swing.JFrame {
         newgamebtn.setForeground(new java.awt.Color(0, 0, 0));
         newgamebtn.setText("NEW GAME");
         newgamebtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        newgamebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                newgamebtnMouseClicked(evt);
+            }
+        });
         newgamebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newgamebtnActionPerformed(evt);
@@ -74,6 +86,11 @@ public class InitialMenu extends javax.swing.JFrame {
         loadgamebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         loadgamebtn.setForeground(new java.awt.Color(0, 0, 0));
         loadgamebtn.setText("LOAD GAME");
+        loadgamebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loadgamebtnMouseClicked(evt);
+            }
+        });
         bgpanel.add(loadgamebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 180, 40));
 
         initmenubackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/initmenu.jpg"))); // NOI18N
@@ -88,6 +105,18 @@ public class InitialMenu extends javax.swing.JFrame {
     private void newgamebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newgamebtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_newgamebtnActionPerformed
+
+    private void loadgamebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadgamebtnMouseClicked
+        
+    }//GEN-LAST:event_loadgamebtnMouseClicked
+
+    private void newgamebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newgamebtnMouseClicked
+        soundPlayer.stopSound();
+        this.setVisible(false);
+
+        mainMenu.setVisible(true);
+        soundPlayer.playSound("src/Sounds/1-54 Surfing.wav");
+    }//GEN-LAST:event_newgamebtnMouseClicked
 
     /**
      * @param args the command line arguments

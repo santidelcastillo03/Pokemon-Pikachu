@@ -4,18 +4,30 @@
  */
 package UI;
 
+import javax.swing.JOptionPane;
+import pokemonpikachu.GameIO;
+import  pokemonpikachu.Game;
+import pokemonpikachu.SoundPlayer;
+
+
 /**
  *
  * @author Santiago
  */
 public class MainMenu extends javax.swing.JFrame {
-
+    Game game = new Game();
+    GameIO gameIO = new GameIO(game);
+    SoundPlayer soundPlayer = new SoundPlayer();
     /**
      * Creates new form MainMenu
      */
     public MainMenu() {
         initComponents();
-    }
+        this.setLocationRelativeTo(null);
+        this.setVisible(false);
+
+        }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +45,7 @@ public class MainMenu extends javax.swing.JFrame {
         pokemonbtn1 = new javax.swing.JButton();
         shopbtn = new javax.swing.JButton();
         wattsbtn1 = new javax.swing.JButton();
-        mainmenutitle = new javax.swing.JLabel();
+        mainmenutitle1 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,6 +65,11 @@ public class MainMenu extends javax.swing.JFrame {
         savegamebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         savegamebtn.setForeground(new java.awt.Color(0, 0, 0));
         savegamebtn.setText("SAVE GAME");
+        savegamebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                savegamebtnMouseClicked(evt);
+            }
+        });
         savegamebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 savegamebtnActionPerformed(evt);
@@ -104,15 +121,15 @@ public class MainMenu extends javax.swing.JFrame {
         });
         mainmenupanel.add(wattsbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 180, 40));
 
-        mainmenutitle.setFont(new java.awt.Font("Snap ITC", 1, 48)); // NOI18N
-        mainmenutitle.setForeground(new java.awt.Color(255, 255, 255));
-        mainmenutitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mainmenutitle.setText("Main Menu");
-        mainmenupanel.add(mainmenutitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 50, 810, -1));
+        mainmenutitle1.setFont(new java.awt.Font("Snap ITC", 1, 48)); // NOI18N
+        mainmenutitle1.setForeground(new java.awt.Color(255, 255, 255));
+        mainmenutitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mainmenutitle1.setText("Main Menu");
+        mainmenupanel.add(mainmenutitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 810, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mainmenu.jpg"))); // NOI18N
         bg.setText(" ");
-        mainmenupanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        mainmenupanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         getContentPane().add(mainmenupanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
@@ -138,6 +155,11 @@ public class MainMenu extends javax.swing.JFrame {
     private void savegamebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savegamebtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_savegamebtnActionPerformed
+
+    private void savegamebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savegamebtnMouseClicked
+        gameIO.saveGame();
+        JOptionPane.showMessageDialog(null, "Game saved");
+    }//GEN-LAST:event_savegamebtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -177,7 +199,7 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JPanel mainmenupanel;
-    private javax.swing.JLabel mainmenutitle;
+    private javax.swing.JLabel mainmenutitle1;
     private javax.swing.JButton playbtn;
     private javax.swing.JButton pokemonbtn1;
     private javax.swing.JButton savegamebtn;

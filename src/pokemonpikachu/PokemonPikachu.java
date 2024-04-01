@@ -4,6 +4,8 @@
  */
 package pokemonpikachu;
 
+import UI.InitialMenu;
+
 /**
  *
  * @author Santiago
@@ -14,6 +16,8 @@ public class PokemonPikachu {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        InitialMenu initialMenu = new InitialMenu();
+        
         Game game = new Game();
 
         GamePlayer player = new GamePlayer(game);
