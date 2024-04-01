@@ -16,8 +16,8 @@ public class Pokemon {
     private String name;
     private String emotionalState;
     private int relationship;
-    private AVLTree<Gift> giftsReceived;
-    private DynamicArray<AVLNode<Gift>> listGifts;
+    AVLTree<Gift> giftsReceived;
+    DynamicArray<AVLNode<Gift>> listGifts;
 
     public Pokemon(String name) {
         this.name = name;
