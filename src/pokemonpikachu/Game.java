@@ -5,6 +5,7 @@
 package pokemonpikachu;
 
 import DataStructures.DynamicArray;
+import UI.Watts;
 
 /**
  *
@@ -12,10 +13,13 @@ import DataStructures.DynamicArray;
  */
 public class Game {
     private long startTime;
+    private long playTime;
+    private static Game instance;
     private int wattsBalance;
     private DynamicArray<Pokemon> pokemons;
     private DynamicArray<Gift> shopGifts;
     private long lastUpdateTime;
+
 
     public Game() {
         this.startTime = System.currentTimeMillis();
@@ -23,8 +27,21 @@ public class Game {
         this.pokemons = new DynamicArray<>();
         this.shopGifts = new DynamicArray<>();
         this.lastUpdateTime = System.currentTimeMillis();
+        
     }
 
+    public static Game getInstance() {
+        if (instance == null) {
+            instance = new Game();
+        }
+        return instance;
+    }
+    public long getPlayTime() {
+        return playTime;
+    }
+    public void incrementPlayTime() {
+        playTime += 1000; // increment by one second
+    }
     public long getStartTime() {
         return startTime;
     }
@@ -94,5 +111,5 @@ public class Game {
         }
         return false;
     }
-
-}
+    
+    }

@@ -17,6 +17,14 @@ import java.io.IOException;
  */
 public class SoundPlayer {
     private Clip clip;
+    private static SoundPlayer instance;
+    
+     public static SoundPlayer getInstance() {
+        if (instance == null) {
+            instance = new SoundPlayer();
+        }
+        return instance;
+    }
 
     public void playSound(String filePath) {
         try {

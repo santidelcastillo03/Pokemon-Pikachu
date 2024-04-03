@@ -12,7 +12,7 @@ import pokemonpikachu.SoundPlayer;
  */
 public class InitialMenu extends javax.swing.JFrame {
     MainMenu mainMenu = new MainMenu();
-    SoundPlayer soundPlayer = new SoundPlayer();
+    SoundPlayer soundPlayer = SoundPlayer.getInstance();
     /**
      * Creates new form InitialMenu
      */

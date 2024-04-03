@@ -4,17 +4,29 @@
  */
 package UI;
 
+import pokemonpikachu.Game;
+
 /**
  *
  * @author Santiago
  */
 public class Watts extends javax.swing.JFrame {
-
+    Game game = Game.getInstance();
     /**
      * Creates new form Watts
      */
     public Watts() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
+        System.out.println(game.getWattsBalance());
+        showWatts();
+    }
+    
+    public void showWatts() {
+        jLabel1.setText(String.valueOf(game.getWattsBalance()));
+        
+        //
     }
 
     /**
@@ -26,17 +38,41 @@ public class Watts extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        WattsPanel = new javax.swing.JPanel();
+        titlewatts = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        wattsbg = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        WattsPanel.setBackground(new java.awt.Color(255, 255, 255));
+        WattsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        titlewatts.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        titlewatts.setForeground(new java.awt.Color(255, 255, 255));
+        titlewatts.setText("WATTS AVAILABLE:");
+        WattsPanel.add(titlewatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 230, 100));
+
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("0");
+        WattsPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 260, 110));
+
+        wattsbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wattsim.png"))); // NOI18N
+        wattsbg.setText(" ");
+        WattsPanel.add(wattsbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(WattsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(WattsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -78,5 +114,9 @@ public class Watts extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel WattsPanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel titlewatts;
+    private javax.swing.JLabel wattsbg;
     // End of variables declaration//GEN-END:variables
 }

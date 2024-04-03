@@ -4,10 +4,15 @@
  */
 package UI;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+
 import pokemonpikachu.GameIO;
 import  pokemonpikachu.Game;
 import pokemonpikachu.SoundPlayer;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.Duration;
 
 
 /**
@@ -15,9 +20,12 @@ import pokemonpikachu.SoundPlayer;
  * @author Santiago
  */
 public class MainMenu extends javax.swing.JFrame {
-    Game game = new Game();
+    Game game = Game.getInstance();
+    Timer timer;
     GameIO gameIO = new GameIO(game);
-    SoundPlayer soundPlayer = new SoundPlayer();
+    SoundPlayer soundPlayer = SoundPlayer.getInstance();
+    ShopUI shopUI = new ShopUI();
+    Watts watts = new Watts();
     /**
      * Creates new form MainMenu
      */
@@ -26,9 +34,25 @@ public class MainMenu extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(false);
 
-        }
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.incrementPlayTime();
+                updatePlayTimeLabel();
+            }
+        });
+        timer.start();
+    }
 
-
+    private void updatePlayTimeLabel() {
+        long playTimeMillis = game.getPlayTime();
+        Duration playTime = Duration.ofMillis(playTimeMillis);
+        long hours = playTime.toHours();
+        long minutes = playTime.toMinutesPart();
+        long seconds = playTime.toSecondsPart();
+        jLabel2.setText(String.format("TIME: %02d:%02d:%02d", hours, minutes, seconds));
+    }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +63,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         mainmenupanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         timebtn = new javax.swing.JButton();
         savegamebtn = new javax.swing.JButton();
         playbtn = new javax.swing.JButton();
@@ -54,6 +79,12 @@ public class MainMenu extends javax.swing.JFrame {
 
         mainmenupanel.setBackground(new java.awt.Color(255, 255, 255));
         mainmenupanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("TIME:");
+        mainmenupanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 20));
 
         timebtn.setBackground(new java.awt.Color(255, 255, 102));
         timebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -103,6 +134,11 @@ public class MainMenu extends javax.swing.JFrame {
         shopbtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         shopbtn.setForeground(new java.awt.Color(0, 0, 0));
         shopbtn.setText("SHOP");
+        shopbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                shopbtnMouseClicked(evt);
+            }
+        });
         shopbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shopbtnActionPerformed(evt);
@@ -114,6 +150,11 @@ public class MainMenu extends javax.swing.JFrame {
         wattsbtn1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         wattsbtn1.setForeground(new java.awt.Color(0, 0, 0));
         wattsbtn1.setText("WATTS");
+        wattsbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                wattsbtn1MouseClicked(evt);
+            }
+        });
         wattsbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wattsbtn1ActionPerformed(evt);
@@ -161,6 +202,19 @@ public class MainMenu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Game saved");
     }//GEN-LAST:event_savegamebtnMouseClicked
 
+    private void shopbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopbtnMouseClicked
+        game.update();
+        this.soundPlayer.stopSound();
+        setVisible(false);
+        shopUI.setVisible(true);
+        soundPlayer.playSound("src/Sounds/2-14 Friendly Shop.wav");
+    }//GEN-LAST:event_shopbtnMouseClicked
+
+    private void wattsbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wattsbtn1MouseClicked
+        game.update();
+        watts.setVisible(true);
+    }//GEN-LAST:event_wattsbtn1MouseClicked
+    
     /**
      * @param args the command line arguments
      */
@@ -198,6 +252,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel mainmenupanel;
     private javax.swing.JLabel mainmenutitle1;
     private javax.swing.JButton playbtn;
