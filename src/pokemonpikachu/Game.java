@@ -77,14 +77,14 @@ public class Game {
      public void update() {
         long currentTime = System.currentTimeMillis();
         long elapsedSeconds = (currentTime - lastUpdateTime) / 1000;
-
+        
         wattsBalance += elapsedSeconds;
 
         for (int i = 0; i < pokemons.size(); i++) {
             Pokemon pokemon = pokemons.get(i);
             pokemon.setRelationship(Math.max(0, pokemon.getRelationship() - (int)elapsedSeconds)); //validar si relacion es igual a 0
         }
-
+         System.out.println(wattsBalance);
         lastUpdateTime = currentTime;
     }
 

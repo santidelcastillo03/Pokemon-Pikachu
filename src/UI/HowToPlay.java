@@ -15,6 +15,7 @@ public class HowToPlay extends javax.swing.JFrame {
      */
     public HowToPlay() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -26,17 +27,41 @@ public class HowToPlay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        HowToPlayPanel = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        HowToPlayBg = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        HowToPlayPanel.setBackground(new java.awt.Color(255, 255, 255));
+        HowToPlayPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 204));
+        jButton1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        jButton1.setText("BACK");
+        HowToPlayPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, 130, 40));
+
+        jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("HOW TO PLAY");
+        HowToPlayPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 70));
+
+        HowToPlayBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/howtoplayim.png"))); // NOI18N
+        HowToPlayBg.setText(" ");
+        HowToPlayPanel.add(HowToPlayBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(HowToPlayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(HowToPlayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -78,5 +103,9 @@ public class HowToPlay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel HowToPlayBg;
+    private javax.swing.JPanel HowToPlayPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

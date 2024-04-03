@@ -13,6 +13,9 @@ import pokemonpikachu.SoundPlayer;
 public class InitialMenu extends javax.swing.JFrame {
     MainMenu mainMenu = new MainMenu();
     SoundPlayer soundPlayer = SoundPlayer.getInstance();
+    HowToPlay howToPlay = new HowToPlay();
+    Credits credits = new Credits();
+    PokemonSelect pokemonSelect = new PokemonSelect();
     /**
      * Creates new form InitialMenu
      */
@@ -57,6 +60,11 @@ public class InitialMenu extends javax.swing.JFrame {
         creditsbtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         creditsbtn.setForeground(new java.awt.Color(0, 0, 0));
         creditsbtn.setText("CREDITS");
+        creditsbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                creditsbtnMouseClicked(evt);
+            }
+        });
         bgpanel.add(creditsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, 180, 40));
 
         newgamebtn.setBackground(new java.awt.Color(255, 255, 102));
@@ -80,6 +88,11 @@ public class InitialMenu extends javax.swing.JFrame {
         howtoplaybtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         howtoplaybtn.setForeground(new java.awt.Color(0, 0, 0));
         howtoplaybtn.setText("HOW TO PLAY");
+        howtoplaybtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                howtoplaybtnMouseClicked(evt);
+            }
+        });
         bgpanel.add(howtoplaybtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 180, 40));
 
         loadgamebtn.setBackground(new java.awt.Color(255, 255, 102));
@@ -111,12 +124,21 @@ public class InitialMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_loadgamebtnMouseClicked
 
     private void newgamebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newgamebtnMouseClicked
-        soundPlayer.stopSound();
+       soundPlayer.stopSound();
         this.setVisible(false);
 
         mainMenu.setVisible(true);
         soundPlayer.playSound("src/Sounds/1-54 Surfing.wav");
+        
     }//GEN-LAST:event_newgamebtnMouseClicked
+
+    private void creditsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsbtnMouseClicked
+       credits.setVisible(true);
+    }//GEN-LAST:event_creditsbtnMouseClicked
+
+    private void howtoplaybtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_howtoplaybtnMouseClicked
+         howToPlay.setVisible(true);
+    }//GEN-LAST:event_howtoplaybtnMouseClicked
 
     /**
      * @param args the command line arguments

@@ -16,12 +16,16 @@ public class PokemonPikachu {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Game game = Game.getInstance();
+        game.setWattsBalance(3000);
+        game.update();
         InitialMenu initialMenu = new InitialMenu();
         SoundPlayer soundPlayer = SoundPlayer.getInstance();
         
-        Game game = Game.getInstance();
         
-    game.setWattsBalance(3000);
+        
+    
+        System.out.println(game.getWattsBalance());
 //        System.out.println( game.getWattsBalance());
 //        GamePlayer player = new GamePlayer(game);
 Pokemon pikachu = new Pokemon("Pikachu");

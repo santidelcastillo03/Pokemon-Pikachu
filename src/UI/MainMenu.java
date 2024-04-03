@@ -64,7 +64,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         mainmenupanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        timebtn = new javax.swing.JButton();
         savegamebtn = new javax.swing.JButton();
         playbtn = new javax.swing.JButton();
         pokemonbtn1 = new javax.swing.JButton();
@@ -85,12 +84,6 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("TIME:");
         mainmenupanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 20));
-
-        timebtn.setBackground(new java.awt.Color(255, 255, 102));
-        timebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        timebtn.setForeground(new java.awt.Color(0, 0, 0));
-        timebtn.setText("TIME");
-        mainmenupanel.add(timebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 180, 40));
 
         savegamebtn.setBackground(new java.awt.Color(255, 255, 102));
         savegamebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -117,7 +110,7 @@ public class MainMenu extends javax.swing.JFrame {
                 playbtnActionPerformed(evt);
             }
         });
-        mainmenupanel.add(playbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 180, 40));
+        mainmenupanel.add(playbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 180, 40));
 
         pokemonbtn1.setBackground(new java.awt.Color(255, 255, 102));
         pokemonbtn1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
@@ -212,6 +205,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void wattsbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wattsbtn1MouseClicked
         game.update();
+        watts.showWatts();
         watts.setVisible(true);
     }//GEN-LAST:event_wattsbtn1MouseClicked
     
@@ -259,7 +253,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton pokemonbtn1;
     private javax.swing.JButton savegamebtn;
     private javax.swing.JButton shopbtn;
-    private javax.swing.JButton timebtn;
     private javax.swing.JButton wattsbtn1;
     // End of variables declaration//GEN-END:variables
 }
