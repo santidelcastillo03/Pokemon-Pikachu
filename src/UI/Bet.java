@@ -4,7 +4,9 @@
  */
 package UI;
 
+import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import pokemonpikachu.Game;
 import pokemonpikachu.SoundPlayer;
 
 /**
@@ -13,7 +15,8 @@ import pokemonpikachu.SoundPlayer;
  */
 public class Bet extends javax.swing.JFrame {
     Play1 play1 = new Play1();
-    
+    Game game = Game.getInstance();
+    int wager;
     SoundPlayer soundPlayer = SoundPlayer.getInstance();
     /**
      * Creates new form Bet
@@ -23,7 +26,7 @@ public class Bet extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         SpinnerNumberModel nm = new SpinnerNumberModel();
         nm.setMinimum(0); //Validar min de watts en el boton de bet(dejar esta linea asi)
-        nm.setMaximum(10000); //CAMBIAR MAX VALUE POR LA CANT WATTS DEL JUGADOR
+        nm.setMaximum(game.getWattsBalance()); //CAMBIAR MAX VALUE POR LA CANT WATTS DEL JUGADOR
         spinner.setModel(nm);
     }
 
@@ -158,6 +161,10 @@ public class Bet extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        String wagerS = (String) spinner.getValue();
+        wager = Integer.parseInt(wagerS);
+        play1.playHighLowGame(wager);
+        
         this.setVisible(false);
         soundPlayer.stopSound();
         play1.setVisible(true);

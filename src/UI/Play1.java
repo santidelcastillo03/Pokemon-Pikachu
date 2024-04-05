@@ -4,18 +4,43 @@
  */
 package UI;
 
+import static java.lang.Math.random;
+import java.util.Random;
+import javax.swing.JOptionPane;
+import pokemonpikachu.Game;
+
 /**
  *
  * @author Santiago
  */
 public class Play1 extends javax.swing.JFrame {
-
+    private Random random;
+    Game game = Game.getInstance();
+    String prediction;
     /**
      * Creates new form Play1
      */
     public Play1() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    void playHighLowGame(int betWatts) {
+    int firstCard = random.nextInt(13) + 1;
+    jLabel1.setText("The card chosen by Pikachu is: " + firstCard);
+    if(prediction == "H" || prediction == "L"){
+    int secondCard = random.nextInt(13) + 1;
+    jLabel1.setText("The next card is: " + secondCard);
+
+    if ((prediction.equalsIgnoreCase("H") && secondCard > firstCard) ||
+        (prediction.equalsIgnoreCase("L") && secondCard < firstCard)) {
+        JOptionPane.showMessageDialog(null, "You won! Pikachu has charged your balance.");
+        game.setWattsBalance(game.getWattsBalance() + 2 * betWatts);
+    } else {
+        JOptionPane.showMessageDialog(null, "You lost! Pikachu has consumed your watts.");
+        game.setWattsBalance(game.getWattsBalance() - betWatts);
+            }
+        }
     }
 
     /**
@@ -51,12 +76,27 @@ public class Play1 extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("HIGHER");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         PikachuGamePanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 170, 70));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 255));
         jButton2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("LOWER");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -84,7 +124,23 @@ public class Play1 extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        prediction = "H";
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        prediction = "L";
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
