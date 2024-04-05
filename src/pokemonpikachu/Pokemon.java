@@ -20,11 +20,28 @@ public class Pokemon {
     AVLTree<Gift> giftsReceived;
     DynamicArray<AVLNode<Gift>> listGifts;
 
+    public static Pokemon getInstance() {
+        return instance;
+    }
+
+    public static void setInstance(Pokemon instance) {
+        Pokemon.instance = instance;
+    }
+
+    public DynamicArray<AVLNode<Gift>> getListGifts() {
+        return listGifts;
+    }
+
+    public void setListGifts(DynamicArray<AVLNode<Gift>> listGifts) {
+        this.listGifts = listGifts;
+    }
+
     public Pokemon(String name) {
         this.name = name;
         this.emotionalState = "Normal";
         this.relationship = 0;
         this.giftsReceived = new AVLTree<>();
+        this.listGifts = new DynamicArray<AVLNode<Gift>>();
     }
 
     public static Pokemon getInstance(String name) {
@@ -66,8 +83,8 @@ public class Pokemon {
     }
 
     public void addGift(Gift gift) {
-        AVLNode<Gift> nGift = new AVLNode(gift.getCost(), gift);
         giftsReceived.addLeaf(gift.getCost(), gift);
+
     }
 
     public void increaseRelationship(int effect) {
@@ -99,6 +116,7 @@ public class Pokemon {
         }
 
         if(root.getData() !=null){
+            System.out.println("regalo: "+root.getData().getName());
             listGifts.add(root);
         }
         if(root.getRight() !=null){
