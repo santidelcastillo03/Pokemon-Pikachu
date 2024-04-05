@@ -4,19 +4,57 @@
  */
 package UI;
 
+import javax.swing.*;
+
+import pokemonpikachu.GameIO;
+import  pokemonpikachu.Game;
+import pokemonpikachu.SoundPlayer;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.Duration;
+
+
 /**
  *
  * @author Santiago
  */
 public class MainMenu extends javax.swing.JFrame {
-
+    Game game = Game.getInstance();
+    Timer timer;
+    GameIO gameIO = new GameIO(game);
+    SoundPlayer soundPlayer = SoundPlayer.getInstance();
+    ShopUI shopUI = new ShopUI();
+    Watts watts = new Watts();
+    PokemonSelect_1 pokemonSelect = new PokemonSelect_1();
+    PokemonSelect_2 pokemonSelect_2 = new PokemonSelect_2();
     /**
      * Creates new form MainMenu
      */
     public MainMenu() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setVisible(false);
+
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.incrementPlayTime();
+                updatePlayTimeLabel();
+            }
+        });
+        timer.start();
     }
 
+    private void updatePlayTimeLabel() {
+        long playTimeMillis = game.getPlayTime();
+        Duration playTime = Duration.ofMillis(playTimeMillis);
+        long hours = playTime.toHours();
+        long minutes = playTime.toMinutesPart();
+        long seconds = playTime.toSecondsPart();
+        jLabel2.setText(String.format("TIME: %02d:%02d:%02d", hours, minutes, seconds));
+    }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,22 +64,171 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        mainmenupanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        savegamebtn = new javax.swing.JButton();
+        playbtn = new javax.swing.JButton();
+        pokemonbtn1 = new javax.swing.JButton();
+        shopbtn = new javax.swing.JButton();
+        wattsbtn1 = new javax.swing.JButton();
+        mainmenutitle1 = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mainmenupanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainmenupanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("TIME:");
+        mainmenupanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 20));
+
+        savegamebtn.setBackground(new java.awt.Color(255, 255, 102));
+        savegamebtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        savegamebtn.setForeground(new java.awt.Color(0, 0, 0));
+        savegamebtn.setText("SAVE GAME");
+        savegamebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                savegamebtnMouseClicked(evt);
+            }
+        });
+        savegamebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savegamebtnActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(savegamebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 180, 40));
+
+        playbtn.setBackground(new java.awt.Color(255, 255, 102));
+        playbtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        playbtn.setForeground(new java.awt.Color(0, 0, 0));
+        playbtn.setText("PLAY");
+        playbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                playbtnMouseClicked(evt);
+            }
+        });
+        playbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playbtnActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(playbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 180, 40));
+
+        pokemonbtn1.setBackground(new java.awt.Color(255, 255, 102));
+        pokemonbtn1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        pokemonbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        pokemonbtn1.setText("POKEMON");
+        pokemonbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokemonbtn1MouseClicked(evt);
+            }
+        });
+        pokemonbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pokemonbtn1ActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(pokemonbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 180, 40));
+
+        shopbtn.setBackground(new java.awt.Color(255, 255, 102));
+        shopbtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        shopbtn.setForeground(new java.awt.Color(0, 0, 0));
+        shopbtn.setText("SHOP");
+        shopbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                shopbtnMouseClicked(evt);
+            }
+        });
+        shopbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shopbtnActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(shopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 180, 40));
+
+        wattsbtn1.setBackground(new java.awt.Color(255, 255, 102));
+        wattsbtn1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        wattsbtn1.setForeground(new java.awt.Color(0, 0, 0));
+        wattsbtn1.setText("WATTS");
+        wattsbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                wattsbtn1MouseClicked(evt);
+            }
+        });
+        wattsbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wattsbtn1ActionPerformed(evt);
+            }
+        });
+        mainmenupanel.add(wattsbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 180, 40));
+
+        mainmenutitle1.setFont(new java.awt.Font("Snap ITC", 1, 48)); // NOI18N
+        mainmenutitle1.setForeground(new java.awt.Color(255, 255, 255));
+        mainmenutitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mainmenutitle1.setText("Main Menu");
+        mainmenupanel.add(mainmenutitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 810, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mainmenu.jpg"))); // NOI18N
+        bg.setText(" ");
+        mainmenupanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
+
+        getContentPane().add(mainmenupanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void playbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playbtnActionPerformed
+
+    private void shopbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shopbtnActionPerformed
+
+    private void wattsbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wattsbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wattsbtn1ActionPerformed
+
+    private void pokemonbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pokemonbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pokemonbtn1ActionPerformed
+
+    private void savegamebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savegamebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_savegamebtnActionPerformed
+
+    private void savegamebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savegamebtnMouseClicked
+        gameIO.saveGame();
+        JOptionPane.showMessageDialog(null, "Game saved");
+    }//GEN-LAST:event_savegamebtnMouseClicked
+
+    private void shopbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopbtnMouseClicked
+        game.update();
+        this.soundPlayer.stopSound();
+        setVisible(false);
+        shopUI.setVisible(true);
+        soundPlayer.playSound("src/Sounds/2-14 Friendly Shop.wav");
+    }//GEN-LAST:event_shopbtnMouseClicked
+
+    private void wattsbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wattsbtn1MouseClicked
+        game.update();
+        watts.showWatts();
+        watts.setVisible(true);
+    }//GEN-LAST:event_wattsbtn1MouseClicked
+
+    private void pokemonbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemonbtn1MouseClicked
+        pokemonSelect.setVisible(true);
+    }//GEN-LAST:event_pokemonbtn1MouseClicked
+
+    private void playbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbtnMouseClicked
+        pokemonSelect_2.setVisible(true);
+    }//GEN-LAST:event_playbtnMouseClicked
+    
     /**
      * @param args the command line arguments
      */
@@ -78,5 +265,14 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel mainmenupanel;
+    private javax.swing.JLabel mainmenutitle1;
+    private javax.swing.JButton playbtn;
+    private javax.swing.JButton pokemonbtn1;
+    private javax.swing.JButton savegamebtn;
+    private javax.swing.JButton shopbtn;
+    private javax.swing.JButton wattsbtn1;
     // End of variables declaration//GEN-END:variables
 }

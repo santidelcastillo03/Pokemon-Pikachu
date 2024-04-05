@@ -20,7 +20,7 @@ public class AVLNode<T> {
     public AVLNode(int key, T data) {
         this.key = key;
         this.data = data;
-        this.qty = 0;
+        this.qty = 1;
         this.height = 1;
     }
 

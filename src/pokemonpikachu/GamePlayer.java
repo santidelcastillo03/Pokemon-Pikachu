@@ -73,15 +73,17 @@ public class GamePlayer {
 
 private void playGuessingGame(Pokemon pokemon, int betWatts) {
     if (pokemon.getGiftsReceived().size() < 2) {
-        System.out.println("Pokemon refuses to play, you need to buy at least 2 gifts for Pokemon.");
+        System.out.println("Pokemon refuses to play, you need to buy at least 2 differen gifts for Pokemon.");
         return;
     }
 
     System.out.println("Guess what Pokemon is thinking. Enter the name of the gift:");
     String guessedGift = scanner.next();
+    pokemon.listGifts = new DynamicArray();
+    pokemon.listGiftsReceived(pokemon.giftsReceived.getRoot());
 
-    int randomGiftIndex = random.nextInt(pokemon.getGiftsReceived().size());
-    Gift actualGift = pokemon.getGiftsReceived().get(randomGiftIndex);
+    int randomGiftIndex = random.nextInt(pokemon.listGifts.size());
+    Gift actualGift = pokemon.listGifts.get(randomGiftIndex).getData();
 
     if (guessedGift.equalsIgnoreCase(actualGift.getName())) {
         System.out.println("You won! Pokemon has charged your balance.");

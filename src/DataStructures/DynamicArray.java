@@ -18,6 +18,14 @@ public class DynamicArray<T> implements Iterable<T> {
         data = new Object[1];
         size = 0;
     }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
     
     private void checkCapacity(int minCapacity) {
         int oldCapacity = data.length;

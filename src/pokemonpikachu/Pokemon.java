@@ -14,10 +14,11 @@ import DataStructures.DynamicArray;
  */
 public class Pokemon {
     private String name;
+    private static Pokemon instance = null;
     private String emotionalState;
     private int relationship;
-    private AVLTree<Gift> giftsReceived;
-    private DynamicArray<Gift> listGifts;
+    AVLTree<Gift> giftsReceived;
+    DynamicArray<AVLNode<Gift>> listGifts;
 
     public Pokemon(String name) {
         this.name = name;
@@ -26,6 +27,12 @@ public class Pokemon {
         this.giftsReceived = new AVLTree<>();
     }
 
+    public static Pokemon getInstance(String name) {
+        if (instance == null) {
+            instance = new Pokemon(name);
+        }
+        return instance;
+    }
     public String getName() {
         return name;
     }
@@ -68,17 +75,35 @@ public class Pokemon {
         if (relationship > 10000) {
             relationship = 10000;
         }
+
+        if (relationship >= 0 && relationship < 2000) {
+            emotionalState = "Sigh";
+        } else if (relationship >= 2000 && relationship < 4000) {
+            emotionalState = "Angry";
+        } else if (relationship >= 4000 && relationship < 6000) {
+            emotionalState = "Normal";
+        } else if (relationship >= 6000 && relationship < 8000) {
+            emotionalState = "Happy";
+        } else if (relationship >= 8000 && relationship <= 10000) {
+            emotionalState = "Inspired";
+        }
     }
 
     public void listGiftsReceived(AVLNode<Gift> root) {
+//        if (root == null) {
+//            return;
+//        }
 
+        if(root.getLeft() !=null){
         listGiftsReceived(root.getLeft());
-
-        if(root.getData() !=null){
-            listGifts.add(root.getData());
         }
 
-        listGiftsReceived(root.getRight());
+        if(root.getData() !=null){
+            listGifts.add(root);
+        }
+        if(root.getRight() !=null){
+            listGiftsReceived(root.getRight());
+        }
 
 }
 
@@ -88,8 +113,8 @@ public class Pokemon {
         infoSB.append("Estado emocional: \n" + emotionalState + "\n");
         listGifts = new DynamicArray();
         listGiftsReceived(giftsReceived.getRoot());
-        for (Gift gift : listGifts) {
-            infoSB.append(gift.getName() + "\n");
+        for (AVLNode<Gift> gift : listGifts) {
+            infoSB.append(gift.getData().getName()+" " + gift.getQty() + "\n");
         }
         String info = infoSB.toString();
         return info;
