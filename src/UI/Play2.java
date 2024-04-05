@@ -4,12 +4,20 @@
  */
 package UI;
 
+import DataStructures.DynamicArray;
+import java.util.Random;
+import pokemonpikachu.Game;
+import pokemonpikachu.Gift;
+import pokemonpikachu.Pokemon;
+
 /**
  *
  * @author Santiago
  */
 public class Play2 extends javax.swing.JFrame {
-
+    private Random random;
+    Game game = Game.getInstance();
+    String guessedGift;
     /**
      * Creates new form Play2
      */
@@ -17,6 +25,27 @@ public class Play2 extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    private void playGuessingGame(int betWatts) {
+    if (game.getPokemons().get(1).getGiftsReceived().size() < 2) {
+        System.out.println("Pokemon refuses to play, you need to buy at least 2 differen gifts for Pokemon.");
+        return;
+    }
+
+
+    game.getPokemons().get(1).listGiftsReceived(game.getPokemons().get(1).getGiftsReceived().getRoot());
+
+    int randomGiftIndex = random.nextInt(game.getPokemons().get(1).getListGifts().size());
+    Gift actualGift = game.getPokemons().get(1).getListGifts().get(randomGiftIndex).getData();
+    guessedGift = jTextField1.getText();
+    if (guessedGift.equalsIgnoreCase(actualGift.getName())) {
+        System.out.println("You won! Pokemon has charged your balance.");
+        game.setWattsBalance(game.getWattsBalance() + 2 * betWatts);
+    } else {
+        System.out.println("You lost! Pokemon has consumed your watts.");
+        game.setWattsBalance(game.getWattsBalance() - betWatts);
+        game.getPokemons().get(1).setRelationship(game.getPokemons().get(1).getRelationship() + betWatts);
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,6 +62,7 @@ public class Play2 extends javax.swing.JFrame {
         ItemsList = new javax.swing.JTextArea();
         ItemLabel = new javax.swing.JLabel();
         selectbtn = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,10 +79,12 @@ public class Play2 extends javax.swing.JFrame {
 
         ItemsList.setBackground(new java.awt.Color(255, 255, 255));
         ItemsList.setColumns(20);
+        ItemsList.setFont(new java.awt.Font("Snap ITC", 1, 14)); // NOI18N
+        ItemsList.setForeground(new java.awt.Color(0, 0, 225));
         ItemsList.setRows(5);
         jScrollPane1.setViewportView(ItemsList);
 
-        PachirisuPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 420, 230));
+        PachirisuPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 420, 190));
 
         ItemLabel.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
         ItemLabel.setForeground(new java.awt.Color(0, 0, 255));
@@ -69,6 +101,16 @@ public class Play2 extends javax.swing.JFrame {
         });
         PachirisuPanel.add(selectbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 150, 50));
 
+        jTextField1.setBackground(new java.awt.Color(221, 221, 221));
+        jTextField1.setFont(new java.awt.Font("Snap ITC", 1, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 225));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        PachirisuPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 326, 420, 40));
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisugameim.png"))); // NOI18N
         bg.setText(" ");
         PachirisuPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
@@ -81,6 +123,10 @@ public class Play2 extends javax.swing.JFrame {
     private void selectbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selectbtnActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +169,7 @@ public class Play2 extends javax.swing.JFrame {
     private javax.swing.JPanel PachirisuPanel;
     private javax.swing.JLabel bg;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton selectbtn;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
