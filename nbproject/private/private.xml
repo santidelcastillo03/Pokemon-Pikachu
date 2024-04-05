@@ -3,18 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/InitialMenu.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/Pokemon.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/ShopUI.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/MainMenu.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/PokemonPikachu.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/Watts.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/HowToPlay.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/Game.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/Credits.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/PokemonSelect.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/Play1.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/SoundPlayer.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/pokemonpikachu/Shop.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/UI/MainMenu.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/pokemonpikachu/Gift.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/DataStructures/AVLTree.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/DataStructures/AVLNode.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/pokemonpikachu/GamePlayer.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/pokemonpikachu/PokemonPikachu.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/pokemonpikachu/Pokemon.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/DataStructures/DynamicArray.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/pokemonpikachu/GameIO.java</file>
+            <file>file:/C:/Users/vicen/Downloads/Pokemon-Pikachu/src/pokemonpikachu/Game.java</file>
         </group>
     </open-files>
 </project-private>

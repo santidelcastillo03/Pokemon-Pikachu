@@ -4,6 +4,8 @@
  */
 package pokemonpikachu;
 
+import DataStructures.AVLNode;
+import DataStructures.DynamicArray;
 import UI.InitialMenu;
 
 /**
@@ -24,9 +26,16 @@ public class PokemonPikachu {
         pikachu.setRelationship(9000);
         game.setWattsBalance(3000);
         game.update();
-//        Shop shop = new Shop(game);
+        Shop shop = new Shop(game);
 //
-//        shop.buyGift();
+shop.buyGift();
+        System.out.println(pikachu.getGiftsReceived().getRoot().getData().getName());
+        AVLNode<Gift> root = pikachu.getGiftsReceived().getRoot();
+pikachu.listGiftsReceived(root);
+DynamicArray<AVLNode<Gift>> list = pikachu.getListGifts();
+for(AVLNode<Gift> node : list){
+    System.out.println(node.getData().getName());
+}
 
         InitialMenu initialMenu = new InitialMenu();
         SoundPlayer soundPlayer = SoundPlayer.getInstance();
@@ -47,6 +56,7 @@ public class PokemonPikachu {
 //
         //
        System.out.println( pikachu.getRelationship());
+        
 //        System.out.println( game.getWattsBalance());
 //
 //        shop.buyGift();
