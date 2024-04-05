@@ -98,6 +98,7 @@
             <Property name="text" type="java.lang.String" value="PLAY"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="playbtnMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playbtnActionPerformed"/>
           </Events>
           <Constraints>
@@ -120,6 +121,7 @@
             <Property name="text" type="java.lang.String" value="POKEMON"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pokemonbtn1MouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pokemonbtn1ActionPerformed"/>
           </Events>
           <Constraints>

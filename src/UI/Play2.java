@@ -15,6 +15,7 @@ public class Play2 extends javax.swing.JFrame {
      */
     public Play2() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -26,21 +27,60 @@ public class Play2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        PachirisuPanel = new javax.swing.JPanel();
+        title = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ItemsList = new javax.swing.JTextArea();
+        ItemLabel = new javax.swing.JLabel();
+        selectbtn = new javax.swing.JButton();
+        bg = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PachirisuPanel.setBackground(new java.awt.Color(255, 255, 255));
+        PachirisuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        title.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        title.setForeground(new java.awt.Color(0, 0, 255));
+        title.setText("Guess what's on my mind");
+        PachirisuPanel.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 550, 80));
+
+        ItemsList.setBackground(new java.awt.Color(255, 255, 255));
+        ItemsList.setColumns(20);
+        ItemsList.setRows(5);
+        jScrollPane1.setViewportView(ItemsList);
+
+        PachirisuPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 420, 230));
+
+        ItemLabel.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        ItemLabel.setForeground(new java.awt.Color(0, 0, 255));
+        ItemLabel.setText("The item is: ");
+        PachirisuPanel.add(ItemLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 320, -1));
+
+        selectbtn.setBackground(new java.awt.Color(0, 0, 255));
+        selectbtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        selectbtn.setText("Select");
+        selectbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectbtnActionPerformed(evt);
+            }
+        });
+        PachirisuPanel.add(selectbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 150, 50));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisugameim.png"))); // NOI18N
+        bg.setText(" ");
+        PachirisuPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+
+        getContentPane().add(PachirisuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void selectbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +118,12 @@ public class Play2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ItemLabel;
+    private javax.swing.JTextArea ItemsList;
+    private javax.swing.JPanel PachirisuPanel;
+    private javax.swing.JLabel bg;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton selectbtn;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

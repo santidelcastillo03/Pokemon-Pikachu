@@ -46,6 +46,7 @@ public class Watts extends javax.swing.JFrame {
         WattsPanel = new javax.swing.JPanel();
         titlewatts = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        Backbtn = new javax.swing.JButton();
         wattsbg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,6 +66,22 @@ public class Watts extends javax.swing.JFrame {
         jLabel1.setText("0");
         WattsPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 260, 110));
 
+        Backbtn.setBackground(new java.awt.Color(0, 51, 255));
+        Backbtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        Backbtn.setForeground(new java.awt.Color(255, 255, 255));
+        Backbtn.setText("BACK");
+        Backbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackbtnMouseClicked(evt);
+            }
+        });
+        Backbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackbtnActionPerformed(evt);
+            }
+        });
+        WattsPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 100, 30));
+
         wattsbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/wattsim.png"))); // NOI18N
         wattsbg.setText(" ");
         WattsPanel.add(wattsbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 210));
@@ -82,6 +99,14 @@ public class Watts extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackbtnActionPerformed
+
+    private void BackbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_BackbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -119,6 +144,7 @@ public class Watts extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Backbtn;
     private javax.swing.JPanel WattsPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel titlewatts;

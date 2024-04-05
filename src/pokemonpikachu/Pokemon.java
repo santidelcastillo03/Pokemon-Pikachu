@@ -14,6 +14,7 @@ import DataStructures.DynamicArray;
  */
 public class Pokemon {
     private String name;
+    private static Pokemon instance = null;
     private String emotionalState;
     private int relationship;
     AVLTree<Gift> giftsReceived;
@@ -26,6 +27,12 @@ public class Pokemon {
         this.giftsReceived = new AVLTree<>();
     }
 
+    public static Pokemon getInstance(String name) {
+        if (instance == null) {
+            instance = new Pokemon(name);
+        }
+        return instance;
+    }
     public String getName() {
         return name;
     }
@@ -83,6 +90,10 @@ public class Pokemon {
     }
 
     public void listGiftsReceived(AVLNode<Gift> root) {
+//        if (root == null) {
+//            return;
+//        }
+
         if(root.getLeft() !=null){
         listGiftsReceived(root.getLeft());
         }

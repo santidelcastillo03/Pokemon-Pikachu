@@ -26,6 +26,8 @@ public class MainMenu extends javax.swing.JFrame {
     SoundPlayer soundPlayer = SoundPlayer.getInstance();
     ShopUI shopUI = new ShopUI();
     Watts watts = new Watts();
+    PokemonSelect_1 pokemonSelect = new PokemonSelect_1();
+    PokemonSelect_2 pokemonSelect_2 = new PokemonSelect_2();
     /**
      * Creates new form MainMenu
      */
@@ -105,6 +107,11 @@ public class MainMenu extends javax.swing.JFrame {
         playbtn.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         playbtn.setForeground(new java.awt.Color(0, 0, 0));
         playbtn.setText("PLAY");
+        playbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                playbtnMouseClicked(evt);
+            }
+        });
         playbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playbtnActionPerformed(evt);
@@ -116,6 +123,11 @@ public class MainMenu extends javax.swing.JFrame {
         pokemonbtn1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         pokemonbtn1.setForeground(new java.awt.Color(0, 0, 0));
         pokemonbtn1.setText("POKEMON");
+        pokemonbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pokemonbtn1MouseClicked(evt);
+            }
+        });
         pokemonbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pokemonbtn1ActionPerformed(evt);
@@ -208,6 +220,14 @@ public class MainMenu extends javax.swing.JFrame {
         watts.showWatts();
         watts.setVisible(true);
     }//GEN-LAST:event_wattsbtn1MouseClicked
+
+    private void pokemonbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemonbtn1MouseClicked
+        pokemonSelect.setVisible(true);
+    }//GEN-LAST:event_pokemonbtn1MouseClicked
+
+    private void playbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbtnMouseClicked
+        pokemonSelect_2.setVisible(true);
+    }//GEN-LAST:event_playbtnMouseClicked
     
     /**
      * @param args the command line arguments

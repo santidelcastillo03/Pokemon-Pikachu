@@ -80,12 +80,12 @@ public class Game {
         
         wattsBalance += elapsedSeconds;
 
-        for (int i = 0; i < pokemons.size(); i++) {
-            Pokemon pokemon = pokemons.get(i);
+         for (int i = 0; i < pokemons.size(); i++) {
+             Pokemon pokemon = pokemons.get(i);
             pokemon.setRelationship(Math.max(0, pokemon.getRelationship() - (int)elapsedSeconds)); //validar si relacion es igual a 0
-        }
+             }
          System.out.println(wattsBalance);
-        lastUpdateTime = currentTime;
+       lastUpdateTime = currentTime;
     }
 
     public void performAction() {

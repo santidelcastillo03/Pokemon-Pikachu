@@ -4,22 +4,21 @@
  */
 package UI;
 
-import pokemonpikachu.Game;
 import pokemonpikachu.SoundPlayer;
 
 /**
  *
  * @author Angel
  */
-public class PokemonSelect extends javax.swing.JFrame {
-    Game game = Game.getInstance();
-    SoundPlayer soundPlayer = SoundPlayer.getInstance();
-    MainMenu mainMenu = new MainMenu();
+public class PokemonSelect_2 extends javax.swing.JFrame {
+    Bet bet = new Bet();
+    Bet2 bet2 = new Bet2();
     /**
      * Creates new form PokemonSelect
      */
-    public PokemonSelect() {
+    public PokemonSelect_2() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -33,11 +32,11 @@ public class PokemonSelect extends javax.swing.JFrame {
 
         PokemonSelectPanel = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        pikachu = new javax.swing.JLabel();
         PachirisuBtn = new javax.swing.JButton();
         PikachuBtn = new javax.swing.JButton();
         Backbtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -46,15 +45,11 @@ public class PokemonSelect extends javax.swing.JFrame {
         PokemonSelectPanel.setBackground(new java.awt.Color(255, 255, 102));
         PokemonSelectPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        title.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        title.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
         title.setForeground(new java.awt.Color(0, 51, 255));
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Select your Pokemon");
-        PokemonSelectPanel.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 800, 96));
-
-        pikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachu200.png"))); // NOI18N
-        pikachu.setText(" ");
-        PokemonSelectPanel.add(pikachu, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 165, 200, -1));
+        PokemonSelectPanel.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 500, 70));
 
         PachirisuBtn.setBackground(new java.awt.Color(0, 51, 255));
         PachirisuBtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
@@ -70,7 +65,7 @@ public class PokemonSelect extends javax.swing.JFrame {
                 PachirisuBtnActionPerformed(evt);
             }
         });
-        PokemonSelectPanel.add(PachirisuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 200, 40));
+        PokemonSelectPanel.add(PachirisuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 170, 40));
 
         PikachuBtn.setBackground(new java.awt.Color(0, 51, 255));
         PikachuBtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
@@ -86,24 +81,35 @@ public class PokemonSelect extends javax.swing.JFrame {
                 PikachuBtnActionPerformed(evt);
             }
         });
-        PokemonSelectPanel.add(PikachuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 210, 40));
+        PokemonSelectPanel.add(PikachuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 170, 40));
 
         Backbtn.setBackground(new java.awt.Color(0, 51, 255));
         Backbtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("BACK");
+        Backbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackbtnMouseClicked(evt);
+            }
+        });
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
-        PokemonSelectPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 130, 40));
+        PokemonSelectPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 100, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisu200.png"))); // NOI18N
-        jLabel1.setText(" ");
-        PokemonSelectPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 200, 210));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pika130.png"))); // NOI18N
+        jLabel2.setText(" ");
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        PokemonSelectPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 130, 130));
 
-        getContentPane().add(PokemonSelectPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachi130.png"))); // NOI18N
+        jLabel3.setText(" ");
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        PokemonSelectPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 130, 130));
+
+        getContentPane().add(PokemonSelectPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -121,12 +127,19 @@ public class PokemonSelect extends javax.swing.JFrame {
     }//GEN-LAST:event_PachirisuBtnActionPerformed
 
     private void PikachuBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PikachuBtnMouseClicked
+        this.setVisible(false);
+        bet.setVisible(true);
         
     }//GEN-LAST:event_PikachuBtnMouseClicked
 
     private void PachirisuBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PachirisuBtnMouseClicked
-        
+        this.setVisible(false);
+        bet2.setVisible(true);
     }//GEN-LAST:event_PachirisuBtnMouseClicked
+
+    private void BackbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseClicked
+       this.setVisible(false);
+    }//GEN-LAST:event_BackbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -145,20 +158,27 @@ public class PokemonSelect extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PokemonSelect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PokemonSelect_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PokemonSelect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PokemonSelect_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PokemonSelect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PokemonSelect_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PokemonSelect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PokemonSelect_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PokemonSelect().setVisible(true);
+                new PokemonSelect_2().setVisible(true);
             }
         });
     }
@@ -168,8 +188,8 @@ public class PokemonSelect extends javax.swing.JFrame {
     private javax.swing.JButton PachirisuBtn;
     private javax.swing.JButton PikachuBtn;
     private javax.swing.JPanel PokemonSelectPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel pikachu;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

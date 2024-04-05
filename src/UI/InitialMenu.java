@@ -15,7 +15,7 @@ public class InitialMenu extends javax.swing.JFrame {
     SoundPlayer soundPlayer = SoundPlayer.getInstance();
     HowToPlay howToPlay = new HowToPlay();
     Credits credits = new Credits();
-    PokemonSelect pokemonSelect = new PokemonSelect();
+    PokemonSelect_3 pokemonSelect = new PokemonSelect_3();
     /**
      * Creates new form InitialMenu
      */

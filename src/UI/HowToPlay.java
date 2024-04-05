@@ -28,8 +28,9 @@ public class HowToPlay extends javax.swing.JFrame {
     private void initComponents() {
 
         HowToPlayPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        Backbtn = new javax.swing.JButton();
+        title = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         HowToPlayBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,16 +39,26 @@ public class HowToPlay extends javax.swing.JFrame {
         HowToPlayPanel.setBackground(new java.awt.Color(255, 255, 255));
         HowToPlayPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 204));
-        jButton1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
-        jButton1.setText("BACK");
-        HowToPlayPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, 130, 40));
+        Backbtn.setBackground(new java.awt.Color(0, 0, 204));
+        Backbtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        Backbtn.setText("BACK");
+        Backbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackbtnMouseClicked(evt);
+            }
+        });
+        HowToPlayPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, 130, 40));
 
-        jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("HOW TO PLAY");
-        HowToPlayPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 70));
+        title.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        title.setForeground(new java.awt.Color(0, 0, 204));
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("HOW TO PLAY");
+        HowToPlayPanel.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 70));
+
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>This is a Pokémon game centered around virtual pets. To play, you must maintain a strong bond with your Pokémon. To prevent this bond from weakening, it's important to engage in activities with your Pokémon. Additionally, there's a shop where you can purchase items to enhance your bond with your Pokémon.</html>");
+        HowToPlayPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 116, 710, 300));
 
         HowToPlayBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/howtoplayim.png"))); // NOI18N
         HowToPlayBg.setText(" ");
@@ -66,6 +77,10 @@ public class HowToPlay extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_BackbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -103,9 +118,10 @@ public class HowToPlay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Backbtn;
     private javax.swing.JLabel HowToPlayBg;
     private javax.swing.JPanel HowToPlayPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
