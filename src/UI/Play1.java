@@ -8,15 +8,17 @@ import static java.lang.Math.random;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import pokemonpikachu.Game;
+import pokemonpikachu.SoundPlayer;
 
 /**
  *
  * @author Santiago
  */
 public class Play1 extends javax.swing.JFrame {
-    private Random random;
+    private Random random = new Random();
     Game game = Game.getInstance();
     String prediction;
+    SoundPlayer soundPlayer = SoundPlayer.getInstance();
     /**
      * Creates new form Play1
      */
@@ -36,9 +38,11 @@ public class Play1 extends javax.swing.JFrame {
         (prediction.equalsIgnoreCase("L") && secondCard < firstCard)) {
         JOptionPane.showMessageDialog(null, "You won! Pikachu has charged your balance.");
         game.setWattsBalance(game.getWattsBalance() + 2 * betWatts);
+        this.setVisible(false);
     } else {
         JOptionPane.showMessageDialog(null, "You lost! Pikachu has consumed your watts.");
         game.setWattsBalance(game.getWattsBalance() - betWatts);
+        this.setVisible(false);
             }
         }
     }
@@ -67,10 +71,10 @@ public class Play1 extends javax.swing.JFrame {
         PikachuGamePanel.setBackground(new java.awt.Color(255, 255, 102));
         PikachuGamePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("The card is: ");
-        PikachuGamePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 420, -1));
+        PikachuGamePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 560, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 255));
         jButton1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
@@ -135,11 +139,17 @@ public class Play1 extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         prediction = "H";
+        playHighLowGame(200);
+        soundPlayer.stopSound();
+        soundPlayer.playSound("src/Sounds/1-54 Surfing.wav");
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         prediction = "L";
+        playHighLowGame(200);
+        soundPlayer.stopSound();
+        soundPlayer.playSound("src/Sounds/1-54 Surfing.wav");
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**

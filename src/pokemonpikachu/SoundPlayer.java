@@ -31,7 +31,8 @@ public class SoundPlayer {
     }
 
     /**
-     *
+     *plays the designated sound
+     * @author Santiago del Castillo
      * @param filePath
      */
     public void playSound(String filePath) {
@@ -49,7 +50,8 @@ public class SoundPlayer {
     }
 
     /**
-     *
+     *stops the current sound
+     * @author Santiago del Castillo
      */
     public void stopSound() {
         if (clip != null && clip.isRunning()) {

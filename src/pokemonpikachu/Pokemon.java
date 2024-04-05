@@ -118,7 +118,7 @@ public class Pokemon {
     }
 
     /**
-     *
+     *@author Vicente Tralci
      * @return
      */
     public AVLTree<Gift> getGiftsReceived() {
@@ -126,7 +126,7 @@ public class Pokemon {
     }
 
     /**
-     *
+     *@author Vicente Tralci
      * @param giftsReceived
      */
     public void setGiftsReceived(AVLTree<Gift> giftsReceived) {
@@ -134,7 +134,7 @@ public class Pokemon {
     }
 
     /**
-     *
+     *@author Vicente Tralci
      * @param gift
      */
     public void addGift(Gift gift) {
@@ -166,7 +166,7 @@ public class Pokemon {
     }
 
     /**
-     *
+     *@author Vicente Tralci
      * @param root
      */
     public void listGiftsReceived(AVLNode<Gift> root) {
@@ -189,7 +189,7 @@ public class Pokemon {
 }
 
     /**
-     *
+     *@author Vicente Tralci
      * @return
      */
     public String currentStatus() {

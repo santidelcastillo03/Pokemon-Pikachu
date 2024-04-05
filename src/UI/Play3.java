@@ -9,19 +9,21 @@ import java.util.Random;
 import pokemonpikachu.Game;
 import pokemonpikachu.Gift;
 import pokemonpikachu.Pokemon;
+import pokemonpikachu.SoundPlayer;
 
 /**
  *
  * @author Santiago
  */
-public class Play2 extends javax.swing.JFrame {
+public class Play3 extends javax.swing.JFrame {
     private Random random;
     Game game = Game.getInstance();
     String guessedGift;
+    SoundPlayer soundPlayer = SoundPlayer.getInstance();
     /**
      * Creates new form Play2
      */
-    public Play2() {
+    public Play3() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -94,6 +96,11 @@ public class Play2 extends javax.swing.JFrame {
         selectbtn.setBackground(new java.awt.Color(0, 0, 255));
         selectbtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         selectbtn.setText("Select");
+        selectbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectbtnMouseClicked(evt);
+            }
+        });
         selectbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectbtnActionPerformed(evt);
@@ -128,6 +135,12 @@ public class Play2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void selectbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectbtnMouseClicked
+       this.setVisible(false);
+       soundPlayer.stopSound();
+        soundPlayer.playSound("src/Sounds/1-54 Surfing.wav");
+    }//GEN-LAST:event_selectbtnMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -145,20 +158,21 @@ public class Play2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Play2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Play3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Play2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Play3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Play2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Play3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Play2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Play3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Play2().setVisible(true);
+                new Play3().setVisible(true);
             }
         });
     }

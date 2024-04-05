@@ -22,7 +22,8 @@ public class GameIO {
     }
 
     /**
-     *
+     *loads the game object
+     * @author Santiago del Castillo
      * @return
      */
     public Game loadGame() {
@@ -46,7 +47,8 @@ public class GameIO {
     }
 
     /**
-     *
+     *saves the game object
+     * @author Santiago del Castillo
      */
     public void saveGame() {
         JFileChooser fileChooser = new JFileChooser();

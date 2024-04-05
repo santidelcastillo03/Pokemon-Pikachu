@@ -13,7 +13,7 @@ import pokemonpikachu.SoundPlayer;
  * @author Angel
  */
 public class Bet2 extends javax.swing.JFrame {
-    Play1 play1 = new Play1();
+    Play3 play2 = new Play3();
     Game game = Game.getInstance();
     int wager;
     SoundPlayer soundPlayer = SoundPlayer.getInstance();
@@ -148,18 +148,21 @@ public class Bet2 extends javax.swing.JFrame {
 
     private void spinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerStateChanged
         spinnerlabel.setText("Watts to bet: " + spinner.getValue().toString());
-        play1.setVisible(true);
+        
     }//GEN-LAST:event_spinnerStateChanged
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        String wagerS = (String) spinner.getValue();
+         soundPlayer.stopSound();
+        soundPlayer.playSound("src/Sounds/1-17 Battle! Trainer.wav");
+        play2.setVisible(true);
+       
+        String wagerS = spinner.getValue().toString();
         wager = Integer.parseInt(wagerS);
-        play1.playHighLowGame(wager);
+        //play1.playHighLowGame(wager);
         
         this.setVisible(false);
-        soundPlayer.stopSound();
-        play1.setVisible(true);
-        soundPlayer.playSound("src/Sounds/1-17 Battle! Trainer.wav");
+        
+       
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked

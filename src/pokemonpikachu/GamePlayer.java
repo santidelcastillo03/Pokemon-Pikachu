@@ -28,7 +28,7 @@ public class GamePlayer {
     }
 
     /**
-     *
+     *plays the game
      */
     public void playGame() {
         System.out.println("Select a Pokemon to play with:");

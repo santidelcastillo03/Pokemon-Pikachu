@@ -61,7 +61,7 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
     }
 
     /**
-     *
+     *@author Vicente Tralci
      * @param key
      * @param data
      */
@@ -70,7 +70,7 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
     }
 
     /**
-     *
+     *@author Vicelnte Tralci
      * @param node
      * @param key
      * @param data

@@ -154,7 +154,7 @@ public class Bet extends javax.swing.JFrame {
 
     private void spinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerStateChanged
         spinnerlabel.setText("Watts to bet: " + spinner.getValue().toString());
-       play1.setVisible(true);
+       
     }//GEN-LAST:event_spinnerStateChanged
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
@@ -162,14 +162,17 @@ public class Bet extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        soundPlayer.stopSound();
+        soundPlayer.playSound("src/Sounds/1-17 Battle! Trainer.wav");
+        play1.setVisible(true);
+        
         String wagerS = spinner.getValue().toString();
         wager = Integer.parseInt(wagerS);
         play1.playHighLowGame(wager);
         
         this.setVisible(false);
-        soundPlayer.stopSound();
-        play1.setVisible(true);
-        soundPlayer.playSound("src/Sounds/1-17 Battle! Trainer.wav");
+        
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked

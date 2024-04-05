@@ -65,7 +65,8 @@ public class Shop {
     }
 
     /**
-     *
+     *initializes 20 gifts for eachdifferent gift
+     * @author Santiago del Castillo
      */
     public void initializeGifts() {
         for (int i = 0; i < 20; i++) {
@@ -82,7 +83,8 @@ public class Shop {
     }
 
     /**
-     *
+     *buys the gift
+     * @author Santiago del Castillo
      */
     public void buyGift() {
         Scanner scanner = new Scanner(System.in);

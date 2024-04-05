@@ -30,56 +30,55 @@ public class Credits extends javax.swing.JFrame {
         CreditsPanel = new javax.swing.JPanel();
         CREDITS = new javax.swing.JLabel();
         Backbtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         CreditsPanel.setBackground(new java.awt.Color(223, 212, 59));
+        CreditsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         CREDITS.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
         CREDITS.setForeground(new java.awt.Color(0, 51, 255));
         CREDITS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CREDITS.setText("CREDITS");
+        CreditsPanel.add(CREDITS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 45, 800, 75));
 
         Backbtn.setBackground(new java.awt.Color(0, 51, 255));
         Backbtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("BACK");
+        Backbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackbtnMouseClicked(evt);
+            }
+        });
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
             }
         });
+        CreditsPanel.add(Backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 130, 40));
 
-        javax.swing.GroupLayout CreditsPanelLayout = new javax.swing.GroupLayout(CreditsPanel);
-        CreditsPanel.setLayout(CreditsPanelLayout);
-        CreditsPanelLayout.setHorizontalGroup(
-            CreditsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CREDITS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreditsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
-        );
-        CreditsPanelLayout.setVerticalGroup(
-            CreditsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CreditsPanelLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(CREDITS, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
-                .addComponent(Backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-        );
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("<html>Images: SpriteCollab https://sprites.pmdcollab.org/<br>Music: https://downloads.khinsider.com/game-soundtracks/<br>album/pokemon-ruby-sapphire-music-super-complete<br> Game Authors: Santiago Del Castillo, Angel García, Vicente Tralci.</html>");
+        CreditsPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 660, 250));
 
-        getContentPane().add(CreditsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(CreditsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_BackbtnActionPerformed
+
+    private void BackbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_BackbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -120,5 +119,6 @@ public class Credits extends javax.swing.JFrame {
     private javax.swing.JButton Backbtn;
     private javax.swing.JLabel CREDITS;
     private javax.swing.JPanel CreditsPanel;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -123,7 +123,8 @@ public class Game {
     }
 
     /**
-     *
+     *updated the watts and the relationship by the second pased
+     * @author Santiago del Castillo
      */
     public void update() {
         long currentTime = System.currentTimeMillis();
@@ -149,7 +150,8 @@ public class Game {
     }
 
     /**
-     *
+     *deducts watts
+     * @author santiago del Castillo
      * @param amount
      */
     public void deductWatts(int amount) {
@@ -161,7 +163,8 @@ public class Game {
     }
 
     /**
-     *
+     *checks if you can unlock pachirisu
+     * @author Santiago del castillo
      * @return
      */
     public boolean canUnlockPachirisu() {
