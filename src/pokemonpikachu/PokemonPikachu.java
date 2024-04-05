@@ -27,9 +27,9 @@ public class PokemonPikachu {
         pikachu.setRelationship(9000);
         game.setWattsBalance(3000);
         game.update();
-        Shop shop = new Shop(game);
-//
-shop.buyGift();
+//        Shop shop = new Shop(game);
+////
+//shop.buyGift();
         
         //System.out.println(pikachu.getGiftsReceived().getRoot().getData().getName());
         AVLNode<Gift> root = pikachu.getGiftsReceived().getRoot();

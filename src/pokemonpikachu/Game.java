@@ -111,5 +111,14 @@ public class Game {
         }
         return false;
     }
+
+    public Pokemon getPokemonByName(String name) {
+        for (Pokemon pokemon : pokemons) {
+            if (pokemon.getName().equals(name)) {
+                return pokemon;
+            }
+        }
+        return null;
+    }
     
     }

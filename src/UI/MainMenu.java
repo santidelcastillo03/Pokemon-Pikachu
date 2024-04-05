@@ -210,7 +210,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void shopbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_shopbtnMouseClicked
         game.update();
         this.soundPlayer.stopSound();
-        setVisible(false);
+        
         shopUI.setVisible(true);
         soundPlayer.playSound("src/Sounds/2-14 Friendly Shop.wav");
     }//GEN-LAST:event_shopbtnMouseClicked

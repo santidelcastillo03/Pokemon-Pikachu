@@ -21,7 +21,7 @@ public class Pokemon {
     AVLTree<Gift> giftsReceived;
     DynamicArray<AVLNode<Gift>> listGifts;
 
-   
+
 
     public DynamicArray<AVLNode<Gift>> getListGifts() {
         return listGifts;

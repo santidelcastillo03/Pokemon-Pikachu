@@ -51,6 +51,11 @@ public class Play1 extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("HIGHER");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         PikachuGamePanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 170, 70));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 255));
@@ -85,6 +90,10 @@ public class Play1 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
