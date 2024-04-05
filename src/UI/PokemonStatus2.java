@@ -28,14 +28,19 @@ public class PokemonStatus2 extends javax.swing.JFrame {
         
         if (pachirisu.getRelationship() <= 2000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisusigh220.png")));
+            StatusLabel.setText("(sigh)");
         } else if (pachirisu.getRelationship() <= 4000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisuangry220.png")));
+            StatusLabel.setText("(angry)");
         } else if (pachirisu.getRelationship() <= 6000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisunormal220.png")));
+            StatusLabel.setText("(normal)");
         }else if (pachirisu.getRelationship() < 8000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisuhappy220.png")));
+            StatusLabel.setText("(happy)");
         }  else {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisuinspired220.png")));
+            StatusLabel.setText("(inspired)");
         }
         
         AVLNode<Gift> root = pachirisu.getGiftsReceived().getRoot();

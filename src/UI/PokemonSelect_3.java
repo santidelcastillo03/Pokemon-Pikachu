@@ -132,6 +132,7 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
         ShopUI shopUI = new ShopUI();
         shopUI.setVisible(true);
         selectedPokemon = game.getPokemonByName("Pachirisu");
+        shopUI.buyGift("Baya Aranja");
     }//GEN-LAST:event_PachirisuBtnActionPerformed
 
     private void BackbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseClicked

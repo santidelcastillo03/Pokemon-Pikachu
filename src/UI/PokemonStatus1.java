@@ -30,14 +30,19 @@ public class PokemonStatus1 extends javax.swing.JFrame {
 
         if (pikachu.getRelationship() <= 2000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachusigh220.png")));
+            StatusLabel.setText("(sigh)");
         } else if (pikachu.getRelationship() <= 4000) {
-            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachunormal220.png")));
+            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachuangry220.png")));
+            StatusLabel.setText("(angry)");
         } else if (pikachu.getRelationship() <= 6000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachunormal220.png")));
+            StatusLabel.setText("(normal)");
         }else if (pikachu.getRelationship() < 8000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachuhappy220.png")));
+            StatusLabel.setText("(happy)");
         }  else {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachuinspired220.png")));
+            StatusLabel.setText("(inspired)");
         }
 
 

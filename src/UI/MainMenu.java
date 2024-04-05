@@ -222,6 +222,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_wattsbtn1MouseClicked
 
     private void pokemonbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pokemonbtn1MouseClicked
+        game.update();
         pokemonSelect.setVisible(true);
     }//GEN-LAST:event_pokemonbtn1MouseClicked
 

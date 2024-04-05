@@ -37,9 +37,9 @@ public class ShopUI extends javax.swing.JFrame {
         return pokemonSelect.getSelectedPokemon();
     }
 
-    private void buyGift(String giftName) {
+    public void buyGift(String giftName) {
         Pokemon selectedPokemon = getSelectedPokemons();
-        pokemonSelect.setVisible(true);
+        
         for (int i = 0; i < shop.getAvailableGifts().size(); i++) {
             Gift gift = shop.getAvailableGifts().get(i);
 
@@ -503,7 +503,7 @@ public class ShopUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RareCandyMouseExited
 
     private void AranjaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AranjaBerryMouseClicked
-        buyGift("Baya Aranja");
+       pokemonSelect.setVisible(true);
     }//GEN-LAST:event_AranjaBerryMouseClicked
 
     private void CaquicBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CaquicBerryMouseClicked
