@@ -26,29 +26,40 @@ public class PokemonStatus1 extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         game.update();
-        jLabel2.setText("Relatioship: "+String.valueOf(pikachu.getRelationship()));
+        showRelationship();
 
         if (pikachu.getRelationship() <= 2000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachusigh220.png")));
+            StatusLabel.setText("(sigh)");
         } else if (pikachu.getRelationship() <= 4000) {
-            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachunormal220.png")));
+            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachuangry220.png")));
+            StatusLabel.setText("(angry)");
         } else if (pikachu.getRelationship() <= 6000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachunormal220.png")));
+            StatusLabel.setText("(normal)");
         }else if (pikachu.getRelationship() < 8000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachuhappy220.png")));
+            StatusLabel.setText("(happy)");
         }  else {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachuinspired220.png")));
+            StatusLabel.setText("(inspired)");
         }
 
 
 
-//        listGifts = new DynamicArray();
-//        pikachu.listGiftsReceived(pikachu.getGiftsReceived().getRoot());
-//        for (AVLNode<Gift> gift : listGifts) {
-//            GiftsList.append(gift.getData().getName()+" " + gift.getQty() + "\n");
-//        }
-
+        AVLNode<Gift> root = pikachu.getGiftsReceived().getRoot();
+        pikachu.listGiftsReceived(root);
+        DynamicArray<AVLNode<Gift>> list = pikachu.getListGifts();
+        for(AVLNode<Gift> node : list){
+        GiftsList.append(node.getData().getName());
+        }
+        
+        
     }
+    public void showRelationship() {
+        game.update();
+        jLabel2.setText("Relatioship: "+String.valueOf(pikachu.getRelationship()));
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.

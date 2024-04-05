@@ -14,19 +14,14 @@ import DataStructures.DynamicArray;
  */
 public class Pokemon {
     private String name;
-    private static Pokemon instance = null;
+    private static Pokemon pikachuInstance = null;
+    private static Pokemon pachirisuInstance = null;
     private String emotionalState;
     private int relationship;
     AVLTree<Gift> giftsReceived;
     DynamicArray<AVLNode<Gift>> listGifts;
 
-    public static Pokemon getInstance() {
-        return instance;
-    }
 
-    public static void setInstance(Pokemon instance) {
-        Pokemon.instance = instance;
-    }
 
     public DynamicArray<AVLNode<Gift>> getListGifts() {
         return listGifts;
@@ -45,10 +40,18 @@ public class Pokemon {
     }
 
     public static Pokemon getInstance(String name) {
-        if (instance == null) {
-            instance = new Pokemon(name);
+        if (name.equals("Pikachu")) {
+            if (pikachuInstance == null) {
+                pikachuInstance = new Pokemon(name);
+            }
+            return pikachuInstance;
+        } else if (name.equals("Pachirisu")) {
+            if (pachirisuInstance == null) {
+                pachirisuInstance = new Pokemon(name);
+            }
+            return pachirisuInstance;
         }
-        return instance;
+        return null;
     }
     public String getName() {
         return name;
@@ -107,9 +110,9 @@ public class Pokemon {
     }
 
     public void listGiftsReceived(AVLNode<Gift> root) {
-//        if (root == null) {
-//            return;
-//        }
+        if (root == null) {
+            return;
+        }
 
         if(root.getLeft() !=null){
         listGiftsReceived(root.getLeft());

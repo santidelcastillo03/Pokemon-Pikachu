@@ -19,17 +19,19 @@ public class PokemonPikachu {
      */
     public static void main(String[] args) {
         Game game = Game.getInstance();
-        Pokemon pikachu = Pokemon.getInstance("Pikachu");
         Pokemon pachirisu = Pokemon.getInstance("Pachirisu");
+        Pokemon pikachu = Pokemon.getInstance("Pikachu");
+        
         game.getPokemons().add(pikachu);
         game.getPokemons().add(pachirisu);
         pikachu.setRelationship(9000);
         game.setWattsBalance(3000);
         game.update();
-        Shop shop = new Shop(game);
-//
-shop.buyGift();
-        System.out.println(pikachu.getGiftsReceived().getRoot().getData().getName());
+//        Shop shop = new Shop(game);
+////
+//shop.buyGift();
+        
+        //System.out.println(pikachu.getGiftsReceived().getRoot().getData().getName());
         AVLNode<Gift> root = pikachu.getGiftsReceived().getRoot();
 pikachu.listGiftsReceived(root);
 DynamicArray<AVLNode<Gift>> list = pikachu.getListGifts();
@@ -43,7 +45,7 @@ for(AVLNode<Gift> node : list){
         
         
     
-        System.out.println(game.getWattsBalance());
+       // System.out.println(game.getWattsBalance());
 //        System.out.println( game.getWattsBalance());
 //        GamePlayer player = new GamePlayer(game);
 
@@ -62,7 +64,7 @@ for(AVLNode<Gift> node : list){
 //        shop.buyGift();
 //        player.playGame();
 //        game.update();
-//        System.out.println(pikachu.currentStatus());
+      System.out.println(pikachu.currentStatus());
     }
 
 

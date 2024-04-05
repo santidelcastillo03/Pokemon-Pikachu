@@ -4,23 +4,66 @@
  */
 package UI;
 
+import UI.PokemonSelect_3;
+import pokemonpikachu.Game;
+import pokemonpikachu.Shop;
 import pokemonpikachu.SoundPlayer;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import pokemonpikachu.Gift;
+import pokemonpikachu.Pokemon;
 
 /**
  *
  * @author Santiago
  */
 public class ShopUI extends javax.swing.JFrame {
-
+    Game game = Game.getInstance();
+    Shop shop = new Shop(game);
     SoundPlayer soundPlayer = SoundPlayer.getInstance();
+    PokemonSelect_3 pokemonSelect;
+
+
     /**
      * Creates new form Shop
      */
     public ShopUI() {
         initComponents();
         this.setLocationRelativeTo(null);
+        shop.initializeGifts();
+        pokemonSelect =PokemonSelect_3.getInstance();
+    }
+    public Pokemon getSelectedPokemons() {
+        return pokemonSelect.getSelectedPokemon();
+    }
+
+    public void buyGift(String giftName) {
+        Pokemon selectedPokemon = getSelectedPokemons();
         
+        for (int i = 0; i < shop.getAvailableGifts().size(); i++) {
+            Gift gift = shop.getAvailableGifts().get(i);
+
+            if (gift.getName().equals(giftName)) {
+
+                if (game.getWattsBalance() >= gift.getCost()) {
+                    game.deductWatts(gift.getCost());
+
+                        String pokemonName = selectedPokemon.getName();
+                        System.out.println(pokemonName);
+                        if (pokemonName.equals("Pikachu") || pokemonName.equals("Pachirisu")) {
+                            selectedPokemon.increaseRelationship(gift.getRelationshipEffect());
+                            selectedPokemon.addGift(gift);
+                            JOptionPane.showMessageDialog(null, "You bought a " + giftName + " for " + pokemonName + "!");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "You can only give gifts to Pikachu or Pachirisu.");
+                        }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "You don't have enough watts to buy this gift.");
+                }
+                break;
+            }
+        }
     }
 
     /**
@@ -74,6 +117,11 @@ public class ShopUI extends javax.swing.JFrame {
         BackBtnShop.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         BackBtnShop.setForeground(new java.awt.Color(255, 255, 255));
         BackBtnShop.setText("BACK");
+        BackBtnShop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackBtnShopMouseClicked(evt);
+            }
+        });
         getContentPane().add(BackBtnShop, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 130, 40));
 
         ShopPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -99,6 +147,9 @@ public class ShopUI extends javax.swing.JFrame {
         AranjaBerry.setText("Aranja Berry");
         AranjaBerry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AranjaBerry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AranjaBerryMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 AranjaBerryMouseEntered(evt);
             }
@@ -113,6 +164,9 @@ public class ShopUI extends javax.swing.JFrame {
         CaquicBerry.setText("Caquic Berry");
         CaquicBerry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CaquicBerry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CaquicBerryMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 CaquicBerryMouseEntered(evt);
             }
@@ -127,6 +181,9 @@ public class ShopUI extends javax.swing.JFrame {
         PokeBall.setText("Poke Ball");
         PokeBall.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         PokeBall.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PokeBallMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PokeBallMouseEntered(evt);
             }
@@ -141,6 +198,9 @@ public class ShopUI extends javax.swing.JFrame {
         ZrezaBerry.setText("Zreza Berry");
         ZrezaBerry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ZrezaBerry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ZrezaBerryMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ZrezaBerryMouseEntered(evt);
             }
@@ -155,6 +215,9 @@ public class ShopUI extends javax.swing.JFrame {
         ZanamaBerry.setText("Zanama Berry");
         ZanamaBerry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ZanamaBerry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ZanamaBerryMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ZanamaBerryMouseEntered(evt);
             }
@@ -169,6 +232,9 @@ public class ShopUI extends javax.swing.JFrame {
         ZiuelaBerry.setText("Ziuela Berry");
         ZiuelaBerry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ZiuelaBerry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ZiuelaBerryMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ZiuelaBerryMouseEntered(evt);
             }
@@ -183,6 +249,9 @@ public class ShopUI extends javax.swing.JFrame {
         ZidraBerry.setText("Zidra Berry");
         ZidraBerry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ZidraBerry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ZidraBerryMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ZidraBerryMouseEntered(evt);
             }
@@ -197,6 +266,9 @@ public class ShopUI extends javax.swing.JFrame {
         EnigmaBerry.setText("Enigma Berry");
         EnigmaBerry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EnigmaBerry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EnigmaBerryMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 EnigmaBerryMouseEntered(evt);
             }
@@ -211,6 +283,9 @@ public class ShopUI extends javax.swing.JFrame {
         RareCandy.setText("Rare Candy");
         RareCandy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         RareCandy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RareCandyMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 RareCandyMouseEntered(evt);
             }
@@ -426,6 +501,46 @@ public class ShopUI extends javax.swing.JFrame {
     private void RareCandyMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RareCandyMouseExited
         RareCandy.setForeground(new java.awt.Color(0,102,204));
     }//GEN-LAST:event_RareCandyMouseExited
+
+    private void AranjaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AranjaBerryMouseClicked
+       pokemonSelect.setVisible(true);
+    }//GEN-LAST:event_AranjaBerryMouseClicked
+
+    private void CaquicBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CaquicBerryMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CaquicBerryMouseClicked
+
+    private void PokeBallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PokeBallMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PokeBallMouseClicked
+
+    private void ZrezaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZrezaBerryMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ZrezaBerryMouseClicked
+
+    private void ZanamaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZanamaBerryMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ZanamaBerryMouseClicked
+
+    private void ZiuelaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZiuelaBerryMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ZiuelaBerryMouseClicked
+
+    private void ZidraBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZidraBerryMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ZidraBerryMouseClicked
+
+    private void EnigmaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnigmaBerryMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EnigmaBerryMouseClicked
+
+    private void RareCandyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RareCandyMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RareCandyMouseClicked
+
+    private void BackBtnShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnShopMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_BackBtnShopMouseClicked
 
     /**
      * @param args the command line arguments

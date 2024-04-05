@@ -5,6 +5,7 @@
 package pokemonpikachu;
 
 import DataStructures.DynamicArray;
+import UI.PokemonSelect_3;
 
 /**
  *
@@ -14,7 +15,8 @@ import java.util.Scanner;
 
 public class Shop {
     private DynamicArray<Gift> availableGifts;
-    private Game game; // replace Player with Game
+    private Game game; 
+    PokemonSelect_3 pokemonSelect = new PokemonSelect_3();
 
     public Shop(Game game) {
         this.game = game;
@@ -22,7 +24,23 @@ public class Shop {
         initializeGifts();
     }
 
-    private void initializeGifts() {
+    public DynamicArray<Gift> getAvailableGifts() {
+        return availableGifts;
+    }
+
+    public void setAvailableGifts(DynamicArray<Gift> availableGifts) {
+        this.availableGifts = availableGifts;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public void initializeGifts() {
         for (int i = 0; i < 20; i++) {
             availableGifts.add(new Gift("Baya Aranja", 100, 100));
             availableGifts.add(new Gift("Baya Caquic", 200, 250));
@@ -37,7 +55,6 @@ public class Shop {
     }
 
     public void buyGift() {
-        showAvailableGifts();
         Scanner scanner = new Scanner(System.in);
         int giftIndex = scanner.nextInt();
         Gift selectedGift = availableGifts.get(giftIndex);
@@ -57,7 +74,7 @@ public class Shop {
         }
     }
 
-    private void showAvailableGifts() {
+    public void showAvailableGifts() {
         for (int i = 0; i < availableGifts.size(); i++) {
             Gift gift = availableGifts.get(i);
             boolean isUnique = true;

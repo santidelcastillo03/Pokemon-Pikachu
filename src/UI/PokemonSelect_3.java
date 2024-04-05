@@ -4,12 +4,19 @@
  */
 package UI;
 
+import pokemonpikachu.Game;
+import pokemonpikachu.Pokemon;
+
 /**
  *
  * @author Angel
  */
 public class PokemonSelect_3 extends javax.swing.JFrame {
-
+    Game game = Game.getInstance();
+    Pokemon selectedPokemon;
+    private static PokemonSelect_3 instance;
+    
+    
     /**
      * Creates new form PokemonSelect
      */
@@ -17,7 +24,12 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+    public static PokemonSelect_3 getInstance() {
+        if (instance == null) {
+            instance = new PokemonSelect_3();
+        }
+        return instance;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +75,11 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
         PikachuBtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         PikachuBtn.setForeground(new java.awt.Color(255, 255, 255));
         PikachuBtn.setText("PIKACHU");
+        PikachuBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PikachuBtnMouseClicked(evt);
+            }
+        });
         PikachuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PikachuBtnActionPerformed(evt);
@@ -74,6 +91,11 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
         Backbtn.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
         Backbtn.setForeground(new java.awt.Color(255, 255, 255));
         Backbtn.setText("BACK");
+        Backbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackbtnMouseClicked(evt);
+            }
+        });
         Backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackbtnActionPerformed(evt);
@@ -105,8 +127,26 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
     }//GEN-LAST:event_PikachuBtnActionPerformed
 
     private void PachirisuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PachirisuBtnActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        
+        ShopUI shopUI = new ShopUI();
+        shopUI.setVisible(true);
+        selectedPokemon = game.getPokemonByName("Pachirisu");
+        shopUI.buyGift("Baya Aranja");
     }//GEN-LAST:event_PachirisuBtnActionPerformed
+
+    private void BackbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_BackbtnMouseClicked
+
+    private void PikachuBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PikachuBtnMouseClicked
+        this.setVisible(false);
+        
+        ShopUI shopUI = new ShopUI();
+        shopUI.setVisible(true);
+        selectedPokemon = game.getPokemonByName("Pikachu");
+
+    }//GEN-LAST:event_PikachuBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -155,4 +195,9 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
+
+    public Pokemon getSelectedPokemon() {
+
+        return this.selectedPokemon;
+    }
 }

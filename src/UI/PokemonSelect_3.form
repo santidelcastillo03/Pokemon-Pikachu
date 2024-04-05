@@ -95,6 +95,7 @@
             <Property name="text" type="java.lang.String" value="PIKACHU"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PikachuBtnMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PikachuBtnActionPerformed"/>
           </Events>
           <Constraints>
@@ -117,6 +118,7 @@
             <Property name="text" type="java.lang.String" value="BACK"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BackbtnMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackbtnActionPerformed"/>
           </Events>
           <Constraints>
