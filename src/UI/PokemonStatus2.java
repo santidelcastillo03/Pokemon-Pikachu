@@ -4,7 +4,10 @@
  */
 package UI;
 
+import DataStructures.AVLNode;
+import DataStructures.DynamicArray;
 import pokemonpikachu.Game;
+import pokemonpikachu.Gift;
 import pokemonpikachu.Pokemon;
 
 /**
@@ -21,7 +24,7 @@ public class PokemonStatus2 extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         game.update();
-        jLabel2.setText("Relatioship: "+String.valueOf(pachirisu.getRelationship()));
+        showRelationship();
         
         if (pachirisu.getRelationship() <= 2000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisusigh220.png")));
@@ -35,9 +38,18 @@ public class PokemonStatus2 extends javax.swing.JFrame {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisuinspired220.png")));
         }
         
+        AVLNode<Gift> root = pachirisu.getGiftsReceived().getRoot();
+        pachirisu.listGiftsReceived(root);
+        DynamicArray<AVLNode<Gift>> list = pachirisu.getListGifts();
+        for(AVLNode<Gift> node : list){
+        GiftsList.append(node.getData().getName());
+        }
         
     }
-
+    public void showRelationship() {
+        game.update();
+        jLabel2.setText("Relatioship: "+String.valueOf(pachirisu.getRelationship()));
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

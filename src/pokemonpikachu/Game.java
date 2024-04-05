@@ -84,7 +84,7 @@ public class Game {
              Pokemon pokemon = pokemons.get(i);
             pokemon.setRelationship(Math.max(0, pokemon.getRelationship() - (int)elapsedSeconds)); //validar si relacion es igual a 0
              }
-         System.out.println(wattsBalance);
+         
        lastUpdateTime = currentTime;
     }
 

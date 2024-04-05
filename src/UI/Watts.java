@@ -28,7 +28,7 @@ public class Watts extends javax.swing.JFrame {
         
         game.update();
         int watts = game.getWattsBalance();
-        System.out.println("watts ui: "+watts);
+        
         jLabel1.setText(String.valueOf(watts));
         
         //

@@ -136,6 +136,7 @@ public class PokemonSelect_1 extends javax.swing.JFrame {
     private void PikachuBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PikachuBtnMouseClicked
         this.setVisible(false);
         game.update();
+        pokemonStatus1.showRelationship();
         pokemonStatus1.setVisible(true);
         
         
@@ -144,6 +145,7 @@ public class PokemonSelect_1 extends javax.swing.JFrame {
     private void PachirisuBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PachirisuBtnMouseClicked
         this.setVisible(false);
         game.update();
+        pokemonStatus2.showRelationship();
         pokemonStatus2.setVisible(true);
     }//GEN-LAST:event_PachirisuBtnMouseClicked
 
