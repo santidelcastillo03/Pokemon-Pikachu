@@ -9,6 +9,7 @@ import java.util.function.Consumer;
 /**
  *
  * @author santiagodelcastillo
+ * @param <T>
  */
 public class AVLTree<T> {
     private AVLNode<T> root;
@@ -59,10 +60,22 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         return height(N.left) - height(N.right);
     }
 
+    /**
+     *
+     * @param key
+     * @param data
+     */
     public void addLeaf(int key, T data) {
         root = insert(this.root, key, data);
     }
 
+    /**
+     *
+     * @param node
+     * @param key
+     * @param data
+     * @return
+     */
     public AVLNode<T> insert(AVLNode<T> node, int key, T data){
         if (node == null){
             AVLNode<T> a = new AVLNode(key, data);
@@ -113,14 +126,27 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         return node;
     }
 
+    /**
+     *
+     * @return
+     */
     public AVLNode<T> getRoot() {
         return root;
     }
 
+    /**
+     *
+     * @param root
+     */
     public void setRoot(AVLNode<T> root) {
         this.root = root;
     }
     
+    /**
+     *
+     * @param key
+     * @return
+     */
     public AVLNode<T> search(int key) {
     AVLNode<T> current = root;
     while (current != null) {
@@ -135,6 +161,11 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
     return null;
 }
     
+    /**
+     *
+     * @param key
+     * @param data
+     */
     public void delete(int key, T data) {
         root = deleteNode(root, key, data);
     }
@@ -164,6 +195,11 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         return rotate(node);
     }
     
+    /**
+     *
+     * @param node
+     * @return
+     */
     public AVLNode minValueNode(AVLNode node) {
         AVLNode current = node;
         while (current.left != null) {
@@ -172,7 +208,11 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         return current;
     }
     
-     public void inOrderTraversal(Consumer<T> consumer) {
+    /**
+     *
+     * @param consumer
+     */
+    public void inOrderTraversal(Consumer<T> consumer) {
         inOrderTraversal(root, consumer);
     }
 
@@ -192,6 +232,10 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int size() {
         return size(root);
     }
@@ -208,6 +252,11 @@ private AVLNode<T> leftRotate(AVLNode<T> node) {
         }
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     */
     public T get(int key) {
         return get(root, key);
     }

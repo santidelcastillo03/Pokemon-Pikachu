@@ -21,16 +21,26 @@ public class Pokemon {
     AVLTree<Gift> giftsReceived;
     DynamicArray<AVLNode<Gift>> listGifts;
 
-
-
+    /**
+     *
+     * @return
+     */
     public DynamicArray<AVLNode<Gift>> getListGifts() {
         return listGifts;
     }
 
+    /**
+     *
+     * @param listGifts
+     */
     public void setListGifts(DynamicArray<AVLNode<Gift>> listGifts) {
         this.listGifts = listGifts;
     }
 
+    /**
+     *
+     * @param name
+     */
     public Pokemon(String name) {
         this.name = name;
         this.emotionalState = "Normal";
@@ -39,6 +49,11 @@ public class Pokemon {
         this.listGifts = new DynamicArray<AVLNode<Gift>>();
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public static Pokemon getInstance(String name) {
         if (name.equals("Pikachu")) {
             if (pikachuInstance == null) {
@@ -53,43 +68,84 @@ public class Pokemon {
         }
         return null;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmotionalState() {
         return emotionalState;
     }
 
+    /**
+     *
+     * @param emotionalState
+     */
     public void setEmotionalState(String emotionalState) {
         this.emotionalState = emotionalState;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getRelationship() {
         return relationship;
     }
 
+    /**
+     *
+     * @param relationship
+     */
     public void setRelationship(int relationship) {
         this.relationship = relationship;
     }
 
+    /**
+     *
+     * @return
+     */
     public AVLTree<Gift> getGiftsReceived() {
         return giftsReceived;
     }
 
+    /**
+     *
+     * @param giftsReceived
+     */
     public void setGiftsReceived(AVLTree<Gift> giftsReceived) {
         this.giftsReceived = giftsReceived;
     }
 
+    /**
+     *
+     * @param gift
+     */
     public void addGift(Gift gift) {
         giftsReceived.addLeaf(gift.getCost(), gift);
 
     }
 
+    /**
+     *
+     * @param effect
+     */
     public void increaseRelationship(int effect) {
         relationship += effect;
         if (relationship > 10000) {
@@ -109,6 +165,10 @@ public class Pokemon {
         }
     }
 
+    /**
+     *
+     * @param root
+     */
     public void listGiftsReceived(AVLNode<Gift> root) {
         if (root == null) {
             return;
@@ -128,6 +188,10 @@ public class Pokemon {
 
 }
 
+    /**
+     *
+     * @return
+     */
     public String currentStatus() {
         StringBuilder infoSB = new StringBuilder();
         infoSB.append("Relación: \n" + relationship + "\n");

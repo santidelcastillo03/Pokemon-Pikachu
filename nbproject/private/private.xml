@@ -4,13 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/Pokemon.java</file>
+            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/ShopUI.java</file>
             <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/MainMenu.java</file>
             <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/Bet.java</file>
+            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/PokemonStatus1.java</file>
             <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/PokemonPikachu.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/Watts.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/Game.java</file>
+            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/PokemonSelect_3.java</file>
+            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/PokemonStatus2.java</file>
+            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/Play1.java</file>
+            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/Shop.java</file>
             <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/Bet2.java</file>
-            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/UI/PokemonSelect_2.java</file>
+            <file>file:/C:/Users/Santiago/Desktop/Pokemon-Pikachu/src/pokemonpikachu/GameIO.java</file>
         </group>
     </open-files>
 </project-private>

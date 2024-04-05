@@ -24,6 +24,9 @@ public class Watts extends javax.swing.JFrame {
         
     }
     
+    /**
+     *
+     */
     public void showWatts() {
         
         game.update();

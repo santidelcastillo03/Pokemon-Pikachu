@@ -13,33 +13,60 @@ import UI.PokemonSelect_3;
  */
 import java.util.Scanner;
 
+/**
+ *
+ * @author Santiago
+ */
 public class Shop {
     private DynamicArray<Gift> availableGifts;
     private Game game; 
     PokemonSelect_3 pokemonSelect = new PokemonSelect_3();
 
+    /**
+     *
+     * @param game
+     */
     public Shop(Game game) {
         this.game = game;
         this.availableGifts = new DynamicArray<>();
         initializeGifts();
     }
 
+    /**
+     *
+     * @return
+     */
     public DynamicArray<Gift> getAvailableGifts() {
         return availableGifts;
     }
 
+    /**
+     *
+     * @param availableGifts
+     */
     public void setAvailableGifts(DynamicArray<Gift> availableGifts) {
         this.availableGifts = availableGifts;
     }
 
+    /**
+     *
+     * @return
+     */
     public Game getGame() {
         return game;
     }
 
+    /**
+     *
+     * @param game
+     */
     public void setGame(Game game) {
         this.game = game;
     }
 
+    /**
+     *
+     */
     public void initializeGifts() {
         for (int i = 0; i < 20; i++) {
             availableGifts.add(new Gift("Baya Aranja", 100, 100));
@@ -54,6 +81,9 @@ public class Shop {
         }
     }
 
+    /**
+     *
+     */
     public void buyGift() {
         Scanner scanner = new Scanner(System.in);
         int giftIndex = scanner.nextInt();
@@ -74,6 +104,9 @@ public class Shop {
         }
     }
 
+    /**
+     *
+     */
     public void showAvailableGifts() {
         for (int i = 0; i < availableGifts.size(); i++) {
             Gift gift = availableGifts.get(i);
@@ -90,6 +123,9 @@ public class Shop {
         }
     }
 
+    /**
+     *
+     */
     public void displayAvailablePokemon() {
         DynamicArray<Pokemon> pokemons = game.getPokemons();
         for (int i = 0; i < pokemons.size(); i++) {

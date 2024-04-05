@@ -20,7 +20,9 @@ public class Game {
     private DynamicArray<Gift> shopGifts;
     private long lastUpdateTime;
 
-
+    /**
+     *
+     */
     public Game() {
         this.startTime = System.currentTimeMillis();
         this.wattsBalance = 0;
@@ -30,51 +32,100 @@ public class Game {
         
     }
 
+    /**
+     *
+     * @return
+     */
     public static Game getInstance() {
         if (instance == null) {
             instance = new Game();
         }
         return instance;
     }
+
+    /**
+     *
+     * @return
+     */
     public long getPlayTime() {
         return playTime;
     }
+
+    /**
+     *
+     */
     public void incrementPlayTime() {
         playTime += 1000; // increment by one second
     }
+
+    /**
+     *
+     * @return
+     */
     public long getStartTime() {
         return startTime;
     }
 
+    /**
+     *
+     * @param startTime
+     */
     public void setStartTime(long startTime) {
         this.startTime = startTime;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getWattsBalance() {
         return wattsBalance;
     }
 
+    /**
+     *
+     * @param wattsBalance
+     */
     public void setWattsBalance(int wattsBalance) {
         this.wattsBalance = wattsBalance;
     }
 
+    /**
+     *
+     * @return
+     */
     public DynamicArray<Pokemon> getPokemons() {
         return pokemons;
     }
 
+    /**
+     *
+     * @param pokemons
+     */
     public void setPokemons(DynamicArray<Pokemon> pokemons) {
         this.pokemons = pokemons;
     }
 
+    /**
+     *
+     * @return
+     */
     public DynamicArray<Gift> getShopGifts() {
         return shopGifts;
     }
 
+    /**
+     *
+     * @param shopGifts
+     */
     public void setShopGifts(DynamicArray<Gift> shopGifts) {
         this.shopGifts = shopGifts;
     }
 
-     public void update() {
+    /**
+     *
+     */
+    public void update() {
         long currentTime = System.currentTimeMillis();
         long elapsedSeconds = (currentTime - lastUpdateTime) / 1000;
         
@@ -88,12 +139,19 @@ public class Game {
        lastUpdateTime = currentTime;
     }
 
+    /**
+     *
+     */
     public void performAction() {
         wattsBalance += 10;
 
         update();
     }
 
+    /**
+     *
+     * @param amount
+     */
     public void deductWatts(int amount) {
         if (amount <= wattsBalance) {
             wattsBalance -= amount;
@@ -102,6 +160,10 @@ public class Game {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean canUnlockPachirisu() {
         for (int i = 0; i < pokemons.size(); i++) {
             Pokemon pokemon = pokemons.get(i);
@@ -112,6 +174,11 @@ public class Game {
         return false;
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public Pokemon getPokemonByName(String name) {
         for (Pokemon pokemon : pokemons) {
             if (pokemon.getName().equals(name)) {

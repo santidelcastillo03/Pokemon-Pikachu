@@ -19,13 +19,21 @@ public class SoundPlayer {
     private Clip clip;
     private static SoundPlayer instance;
     
-     public static SoundPlayer getInstance() {
+    /**
+     *
+     * @return
+     */
+    public static SoundPlayer getInstance() {
         if (instance == null) {
             instance = new SoundPlayer();
         }
         return instance;
     }
 
+    /**
+     *
+     * @param filePath
+     */
     public void playSound(String filePath) {
         try {
             File soundFile = new File(filePath);
@@ -40,6 +48,9 @@ public class SoundPlayer {
         }
     }
 
+    /**
+     *
+     */
     public void stopSound() {
         if (clip != null && clip.isRunning()) {
             clip.stop();

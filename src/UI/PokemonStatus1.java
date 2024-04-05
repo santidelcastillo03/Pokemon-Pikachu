@@ -27,7 +27,15 @@ public class PokemonStatus1 extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         game.update();
         showRelationship();
-
+        
+        
+        AVLNode<Gift> root = pikachu.getGiftsReceived().getRoot();
+        pikachu.listGiftsReceived(root);
+        DynamicArray<AVLNode<Gift>> list = pikachu.getListGifts();
+        for(AVLNode<Gift> node : list){
+        GiftsList.append(node.getData().getName());
+        }
+        
         if (pikachu.getRelationship() <= 2000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pikachusigh220.png")));
             StatusLabel.setText("(sigh)");
@@ -47,15 +55,13 @@ public class PokemonStatus1 extends javax.swing.JFrame {
 
 
 
-        AVLNode<Gift> root = pikachu.getGiftsReceived().getRoot();
-        pikachu.listGiftsReceived(root);
-        DynamicArray<AVLNode<Gift>> list = pikachu.getListGifts();
-        for(AVLNode<Gift> node : list){
-        GiftsList.append(node.getData().getName());
-        }
         
         
     }
+
+    /**
+     *
+     */
     public void showRelationship() {
         game.update();
         jLabel2.setText("Relatioship: "+String.valueOf(pikachu.getRelationship()));

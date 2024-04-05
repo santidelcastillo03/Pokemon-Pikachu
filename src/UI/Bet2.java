@@ -148,6 +148,7 @@ public class Bet2 extends javax.swing.JFrame {
 
     private void spinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerStateChanged
         spinnerlabel.setText("Watts to bet: " + spinner.getValue().toString());
+        play1.setVisible(true);
     }//GEN-LAST:event_spinnerStateChanged
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked

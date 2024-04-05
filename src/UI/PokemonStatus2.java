@@ -26,6 +26,13 @@ public class PokemonStatus2 extends javax.swing.JFrame {
         game.update();
         showRelationship();
         
+        AVLNode<Gift> root = pachirisu.getGiftsReceived().getRoot();
+        pachirisu.listGiftsReceived(root);
+        DynamicArray<AVLNode<Gift>> list = pachirisu.getListGifts();
+        for(AVLNode<Gift> node : list){
+        GiftsList.append(node.getData().getName());
+        }
+        
         if (pachirisu.getRelationship() <= 2000) {
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pachirisusigh220.png")));
             StatusLabel.setText("(sigh)");
@@ -43,14 +50,13 @@ public class PokemonStatus2 extends javax.swing.JFrame {
             StatusLabel.setText("(inspired)");
         }
         
-        AVLNode<Gift> root = pachirisu.getGiftsReceived().getRoot();
-        pachirisu.listGiftsReceived(root);
-        DynamicArray<AVLNode<Gift>> list = pachirisu.getListGifts();
-        for(AVLNode<Gift> node : list){
-        GiftsList.append(node.getData().getName());
-        }
+        
         
     }
+
+    /**
+     *
+     */
     public void showRelationship() {
         game.update();
         jLabel2.setText("Relatioship: "+String.valueOf(pachirisu.getRelationship()));

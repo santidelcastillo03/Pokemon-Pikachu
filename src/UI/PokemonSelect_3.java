@@ -14,6 +14,7 @@ import pokemonpikachu.Pokemon;
 public class PokemonSelect_3 extends javax.swing.JFrame {
     Game game = Game.getInstance();
     Pokemon selectedPokemon;
+    
     private static PokemonSelect_3 instance;
     
     
@@ -24,6 +25,11 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+
+    /**
+     *
+     * @return
+     */
     public static PokemonSelect_3 getInstance() {
         if (instance == null) {
             instance = new PokemonSelect_3();
@@ -132,7 +138,7 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
         ShopUI shopUI = new ShopUI();
         shopUI.setVisible(true);
         selectedPokemon = game.getPokemonByName("Pachirisu");
-        shopUI.buyGift("Baya Aranja");
+        shopUI.buyGift(shopUI.selectedGift);
     }//GEN-LAST:event_PachirisuBtnActionPerformed
 
     private void BackbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackbtnMouseClicked
@@ -196,6 +202,10 @@ public class PokemonSelect_3 extends javax.swing.JFrame {
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public Pokemon getSelectedPokemon() {
 
         return this.selectedPokemon;

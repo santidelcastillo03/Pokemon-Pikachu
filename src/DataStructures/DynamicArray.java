@@ -9,20 +9,32 @@ import java.util.NoSuchElementException;
 /**
  *
  * @author Santiago
+ * @param <T>
  */
 public class DynamicArray<T> implements Iterable<T> {
     private Object[] data;
     private int size;
 
+    /**
+     *
+     */
     public DynamicArray() {
         data = new Object[1];
         size = 0;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     *
+     * @param size
+     */
     public void setSize(int size) {
         this.size = size;
     }
@@ -36,6 +48,10 @@ public class DynamicArray<T> implements Iterable<T> {
         }
     }
     
+    /**
+     *
+     * @param element
+     */
     public void add(Object element) {
         if (size == data.length) {
             checkCapacity(2 * data.length);
@@ -43,6 +59,10 @@ public class DynamicArray<T> implements Iterable<T> {
         data[size++] = element;
     }
 
+    /**
+     *
+     * @param index
+     */
     public void remove(int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -54,6 +74,11 @@ public class DynamicArray<T> implements Iterable<T> {
         size--;
     }
 
+    /**
+     *
+     * @param index
+     * @return
+     */
     public T get(int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -61,14 +86,19 @@ public class DynamicArray<T> implements Iterable<T> {
         return  (T) data[index];
     }
 
+    /**
+     *
+     * @return
+     */
     public int size() {
         return size;
     }
 
-
-
-
-        @Override
+    /**
+     *
+     * @return
+     */
+    @Override
         public Iterator<T> iterator() {
             return new Iterator<T>() {
                 private int currentIndex = 0;

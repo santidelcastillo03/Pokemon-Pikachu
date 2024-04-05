@@ -25,6 +25,7 @@ public class PokemonPikachu {
         game.getPokemons().add(pikachu);
         game.getPokemons().add(pachirisu);
         pikachu.setRelationship(9000);
+        pachirisu.setRelationship(5000);
         game.setWattsBalance(3000);
         game.update();
 //        Shop shop = new Shop(game);

@@ -13,10 +13,18 @@ import java.io.*;
 public class GameIO {
     private Game game;
 
+    /**
+     *
+     * @param game
+     */
     public GameIO(Game game) {
         this.game = game;
     }
 
+    /**
+     *
+     * @return
+     */
     public Game loadGame() {
         JFileChooser fileChooser = new JFileChooser();
         int returnValue = fileChooser.showOpenDialog(null);
@@ -37,6 +45,9 @@ public class GameIO {
         return game;
     }
 
+    /**
+     *
+     */
     public void saveGame() {
         JFileChooser fileChooser = new JFileChooser();
         int returnValue = fileChooser.showSaveDialog(null);

@@ -18,6 +18,11 @@ import pokemonpikachu.Pokemon;
  * @author Santiago
  */
 public class ShopUI extends javax.swing.JFrame {
+
+    /**
+     *
+     */
+    public String selectedGift;
     Game game = Game.getInstance();
     Shop shop = new Shop(game);
     SoundPlayer soundPlayer = SoundPlayer.getInstance();
@@ -33,10 +38,19 @@ public class ShopUI extends javax.swing.JFrame {
         shop.initializeGifts();
         pokemonSelect =PokemonSelect_3.getInstance();
     }
+
+    /**
+     *
+     * @return
+     */
     public Pokemon getSelectedPokemons() {
         return pokemonSelect.getSelectedPokemon();
     }
 
+    /**
+     *
+     * @param giftName
+     */
     public void buyGift(String giftName) {
         Pokemon selectedPokemon = getSelectedPokemons();
         
@@ -503,39 +517,48 @@ public class ShopUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RareCandyMouseExited
 
     private void AranjaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AranjaBerryMouseClicked
-       pokemonSelect.setVisible(true);
+       selectedGift = "Baya Aranja";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_AranjaBerryMouseClicked
 
     private void CaquicBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CaquicBerryMouseClicked
-        // TODO add your handling code here:
+        selectedGift = "Baya Caquic";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_CaquicBerryMouseClicked
 
     private void PokeBallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PokeBallMouseClicked
-        // TODO add your handling code here:
+        selectedGift = "Poke ball";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_PokeBallMouseClicked
 
     private void ZrezaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZrezaBerryMouseClicked
-        // TODO add your handling code here:
+        selectedGift = "Baya Zreza";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_ZrezaBerryMouseClicked
 
     private void ZanamaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZanamaBerryMouseClicked
-        // TODO add your handling code here:
+        selectedGift = "Baya Zanama";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_ZanamaBerryMouseClicked
 
     private void ZiuelaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZiuelaBerryMouseClicked
-        // TODO add your handling code here:
+        selectedGift = "Baya Ziuela";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_ZiuelaBerryMouseClicked
 
     private void ZidraBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZidraBerryMouseClicked
-        // TODO add your handling code here:
+        selectedGift = "Baya Zidra";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_ZidraBerryMouseClicked
 
     private void EnigmaBerryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnigmaBerryMouseClicked
-        // TODO add your handling code here:
+        selectedGift = "Baya Enigma";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_EnigmaBerryMouseClicked
 
     private void RareCandyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RareCandyMouseClicked
-        // TODO add your handling code here:
+        selectedGift = "Caramelo raro";
+        pokemonSelect.setVisible(true);
     }//GEN-LAST:event_RareCandyMouseClicked
 
     private void BackBtnShopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackBtnShopMouseClicked

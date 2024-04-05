@@ -17,12 +17,19 @@ public class GamePlayer {
     private Random random;
     private Scanner scanner;
 
+    /**
+     *
+     * @param game
+     */
     public GamePlayer(Game game) {
         this.game = game;
         this.random = new Random();
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     *
+     */
     public void playGame() {
         System.out.println("Select a Pokemon to play with:");
         for (int i = 0; i < game.getPokemons().size(); i++) {
@@ -95,6 +102,9 @@ private void playGuessingGame(Pokemon pokemon, int betWatts) {
     }
 }
 
+    /**
+     *
+     */
     public void displayAvailablePokemon() {
         DynamicArray<Pokemon> pokemons = game.getPokemons();
         for (int i = 0; i < pokemons.size(); i++) {
